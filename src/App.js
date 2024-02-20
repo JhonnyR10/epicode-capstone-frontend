@@ -1,16 +1,15 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
-import RegisterLoginCard from "./components/RegisterLoginCard";
+import LandingPage from "./components/LandingPage";
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <p>ciao</p>
-      </div>
       <Routes>
-        <Route path="/" element={<RegisterLoginCard />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="login" element={<Login />} />
       </Routes>
     </BrowserRouter>

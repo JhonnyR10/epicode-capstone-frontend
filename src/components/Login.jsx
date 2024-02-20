@@ -33,11 +33,13 @@ export default function Login() {
       .catch((err) => console.log("ERRORE!", err));
   }
   return (
-    <form id="login-form">
+    <form id="login-form" className="bg-section">
+      <h2 className="text-center">Login</h2>
       <InputGroup className="d-flex flex-column w-100">
         <Form.Label className="text-center fs-5">Email</Form.Label>
       </InputGroup>
       <Form.Control
+        className="w-100 m-auto"
         required
         value={email}
         onChange={(e) => {
@@ -48,6 +50,7 @@ export default function Login() {
         <Form.Label className="text-center fs-5 mt-3">Password</Form.Label>
       </InputGroup>
       <Form.Control
+        className="w-100 m-auto"
         type="password"
         required
         value={password}

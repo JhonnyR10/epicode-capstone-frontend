@@ -41,81 +41,91 @@ export default function Register() {
   }
 
   return (
-    <div className="inner">
-      <h3>Registrati</h3>
-      <form id="register-form">
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Username</Form.Label>
-        </InputGroup>
-        <Form.Control
-          required
-          value={username}
-          onChange={(e) => {
-            setUsername(e.target.value);
-          }}
-        ></Form.Control>
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Email</Form.Label>
-        </InputGroup>
-        <Form.Control
-          required
-          value={email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        ></Form.Control>
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Password</Form.Label>
-        </InputGroup>
-        <Form.Control
-          type="password"
-          required
-          value={password}
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        ></Form.Control>
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Nome</Form.Label>
-        </InputGroup>
-        <Form.Control
-          required
-          value={nome}
-          onChange={(e) => {
-            setNome(e.target.value);
-          }}
-        ></Form.Control>
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Cognome</Form.Label>
-        </InputGroup>
-        <Form.Control
-          required
-          value={cognome}
-          onChange={(e) => {
-            setCognome(e.target.value);
-          }}
-        ></Form.Control>
-        <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Ruolo</Form.Label>
-        </InputGroup>
-        <Form.Select
-          value={role}
-          onChange={(e) => {
-            setRole(e.target.value);
-          }}
-        >
-          <option>USER</option>
-          <option>ADMIN</option>
-        </Form.Select>
-        <div className="text-center mt-3">
-          <Button
-            className="save-button rounded-5 px-3"
-            onClick={registraUtente}
-          >
-            Registrati
-          </Button>
+    <form id="register-form" className="bg-section">
+      <h2 className="text-center">Registrati</h2>
+      <div className="row">
+        <div className="col-6">
+          <InputGroup className="d-flex flex-column w-100">
+            <Form.Label className="text-center fs-5">Username</Form.Label>
+          </InputGroup>
+          <Form.Control
+            className="w-100 m-auto"
+            required
+            value={username}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          ></Form.Control>
+          <InputGroup className="d-flex flex-column w-100">
+            <Form.Label className="text-center fs-5">Email</Form.Label>
+          </InputGroup>
+          <Form.Control
+            className="w-100 m-auto"
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          ></Form.Control>
+          <InputGroup className="d-flex flex-column w-100">
+            <Form.Label className="text-center fs-5">Password</Form.Label>
+          </InputGroup>
+          <Form.Control
+            className="w-100 m-auto"
+            type="password"
+            required
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          ></Form.Control>
         </div>
-      </form>
-    </div>
+        <div className="col-6">
+          <InputGroup className="d-flex flex-column w-100">
+            <Form.Label className="text-center fs-5">Nome</Form.Label>
+          </InputGroup>
+          <Form.Control
+            className="w-100 m-auto"
+            required
+            value={nome}
+            onChange={(e) => {
+              setNome(e.target.value);
+            }}
+          ></Form.Control>
+          <InputGroup className="d-flex flex-column w-100">
+            <Form.Label className="text-center fs-5">Cognome</Form.Label>
+          </InputGroup>
+          <Form.Control
+            className="w-100 m-auto"
+            required
+            value={cognome}
+            onChange={(e) => {
+              setCognome(e.target.value);
+            }}
+          ></Form.Control>
+          <div className="text-center mt-3">
+            <Button
+              className="save-button rounded-5 px-3"
+              onClick={registraUtente}
+            >
+              Registrati
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* <InputGroup className="d-flex flex-column w-100">
+          <Form.Label className="text-center fs-5">Ruolo</Form.Label>
+        </InputGroup> */}
+      {/* <Form.Select
+        value={role}
+        onChange={(e) => {
+          setRole(e.target.value);
+        }}
+      >
+        <option>USER</option>
+        <option>ADMIN</option>
+      </Form.Select> */}
+    </form>
   );
 }
