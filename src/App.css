@@ -1,14 +1,26 @@
-
-body{
-background-image: linear-gradient(to bottom, #000000, #030302, #050505, #080807, #0a0a0a, #141313, #1b1a1a, #212120, #2f2f2e, #3e3d3d, #4d4c4c, #5c5c5c);
-
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #030302,
+    #050505,
+    #080807,
+    #0a0a0a,
+    #141313,
+    #1b1a1a,
+    #212120,
+    #2f2f2e,
+    #3e3d3d,
+    #4d4c4c,
+    #5c5c5c
+  );
 }
 
-header{
-background-size: cover;
+header {
+  background-size: cover;
   background-position: 0% 50%;
   transition: background-position 0.5s ease-in-out;
-  height: 35vh;
+  height: 50vh;
   width: auto;
 }
 
@@ -20,7 +32,7 @@ header.scrolled {
   position: sticky;
   top: 0;
   z-index: 1000;
-  margin: 0px 7rem;
+  margin: 0px 4.5rem;
   padding-top: 0;
 }
 
@@ -29,58 +41,58 @@ header.scrolled {
   visibility: hidden;
 }
 
-.navSpan{
-  background-color: #2D2E2E;
+.navSpan {
+  background-color: #2d2e2e;
   color: white;
   opacity: 0.8;
-  padding:0px 8px 8px 8px;
-  
+  padding: 0px 8px 8px 8px;
 }
-.hamburger{
-background-color: #2D2E2E;
-opacity: 0.8;
-height: 100%;
+.hamburger {
+  background-color: #2d2e2e;
+  opacity: 0.8;
+  height: 100%;
 }
-.iconaH{
+.iconaH {
   font-size: 30px;
-  
 }
-.logoImg{
+.logoImg {
   width: 40px;
   height: 40px;
 }
-.scrittaImg{
+.scrittaImg {
   width: 60px;
   height: 60px;
 }
-.nav-link{
-  color:   white !important;
+.nav-link {
+  color: white !important;
+  cursor: pointer;
 }
 .scrittaCard {
   border: 0;
-  background-color: rgba(255, 255, 255, 0.0);
+  background-color: rgba(255, 255, 255, 0);
   transition: transform 0.3s ease-in-out;
 }
-.gameCard{
+.gameCard {
   bottom: 40px;
 
   transition: transform 0.3s ease-in-out;
 }
-.gameCard img{
+.gameCard img {
   height: auto;
- 
 }
 
-.gameCard:hover,.scrittaCard:hover {
+.gameCard:hover,
+.scrittaCard:hover {
   transform: scale(1.1);
 }
 
-.gameCard,.scrittaCard {
+.gameCard,
+.scrittaCard {
   position: relative;
   overflow: hidden;
 }
 
-.gameCard::before{
+.gameCard::before {
   content: "";
   position: absolute;
   top: 0;
@@ -93,11 +105,12 @@ height: 100%;
   transition: opacity 0.3s ease-in-out;
 }
 
-.gameCard:hover::before,.scrittaCard:hover::before {
+.gameCard:hover::before,
+.scrittaCard:hover::before {
   opacity: 0;
 }
 
-.sezioneCentrale{
+.sezioneCentrale {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
@@ -151,73 +164,73 @@ z-index: 3;
 } */
 .bg-section1 {
   color: white;
-  background-color: rgba(255, 255, 255, 0.0);
+  background-color: rgba(255, 255, 255, 0);
   border: 0px;
   text-align: center;
 }
- .flip-container {
-   /* Rappresenta l'inclinazione prospettica, in questo caso della rotazione */
-   -webkit-perspective: 800;
-   -moz-perspective: 800;
-   -ms-perspective: 800;
-   perspective: 800;
-   margin: 0 auto;
- }
+.flip-container {
+  /* Rappresenta l'inclinazione prospettica, in questo caso della rotazione */
+  -webkit-perspective: 800;
+  -moz-perspective: 800;
+  -ms-perspective: 800;
+  perspective: 800;
+  margin: 0 auto;
+}
 
- /* ruota il pannello al mousehover */
- .flip-container.clicked .flipper {
-   transform: rotateY(180deg);
- }
+/* ruota il pannello al mousehover */
+.flip-container.clicked .flipper {
+  transform: rotateY(180deg);
+}
 
- .flip-container,
- .front,
- .back {
-   /* width: 421px; */
-   height: fit-content;
-   /* background-color: #2D2E2E;
+.flip-container,
+.front,
+.back {
+  /* width: 421px; */
+  height: fit-content;
+  /* background-color: #2D2E2E;
    color: #F1E9DA; */
-   border-radius: 1%;
-   width: 100%;
-   /* height: 100%; */
- }
+  border-radius: 1%;
+  width: 100%;
+  /* height: 100%; */
+}
 
- /* impostare velocità di transizione */
- .flipper {
-   -webkit-transition: 0.6s;
-   -moz-transition: 0.6s;
-   -ms-transition: 0.6s;
-   transition: 0.6s;
-   -moz-transform-style: preserve-3d;
-   -webkit-transform-style: preserve-3d;
-   transform-style: preserve-3d;
-   position: relative;
- }
+/* impostare velocità di transizione */
+.flipper {
+  -webkit-transition: 0.6s;
+  -moz-transition: 0.6s;
+  -ms-transition: 0.6s;
+  transition: 0.6s;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  position: relative;
+}
 
- /* nasconde il retro durante lo swap */
- .front,
- .back {
-   -webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-   backface-visibility: hidden;
-   position: absolute;
-   top: 0;
-   left: 0;
-   background: none;
- }
+/* nasconde il retro durante lo swap */
+.front,
+.back {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+}
 
- /* front pane, placed above back, quello con lo z-index + alto, anche se sta prima nel codice, finisce sopra */
- .front {
-   /* z-index: 2; */
-   box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
- }
+/* front pane, placed above back, quello con lo z-index + alto, anche se sta prima nel codice, finisce sopra */
+.front {
+  /* z-index: 2; */
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
 
- /* back, initially hidden pane */
- .back {
-   -webkit-transform: rotateY(180deg);
-   -moz-transform: rotateY(180deg);
-   transform: rotateY(180deg);
-   box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
- }
+/* back, initially hidden pane */
+.back {
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
 
 /* --------------------CSS CARD REGISTER/LOGIN------------------- */
 .card-container {
@@ -240,7 +253,8 @@ z-index: 3;
   transition: transform 0.6s;
 }
 
-.card-face,.card-back {
+.card-face,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -253,15 +267,75 @@ z-index: 3;
 }
 
 .card-front {
-color: white;
-  background-color: rgba(255, 255, 255, 0.0);
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .card-back {
   transform: rotateY(180deg);
   color: white;
-    background-color: rgba(255, 255, 255, 0.0);
+  background-color: rgba(255, 255, 255, 0);
 }
- .card-container.clicked .cardLR {
-   transform: rotateY(180deg);
- }
+.card-container.clicked .cardLR {
+  transform: rotateY(180deg);
+}
+
+/*---------------------------------PROFILO--------------------*/
+.sezioneProfilo {
+  margin: 0px 4.5rem;
+}
+@media (max-width: 1100px) {
+  .sezioneProfilo {
+    margin: 0px 1rem;
+  }
+  #navbar1 {
+    margin: 0px 1rem;
+  }
+}
+.cardUser {
+  background-color: rgba(45, 46, 46, 0.4);
+  color: white;
+  opacity: 0.8;
+  padding: 10px 8px 8px 8px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+.cardUser1 {
+  background-color: #1f1f1f;
+  color: white;
+  opacity: 0.7;
+  padding: 8px 8px 8px 8px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 1px 1px 20px 1px #434343;
+}
+
+.list-group-item {
+  background-color: #2d2e2e;
+  color: white;
+  opacity: 0.8;
+}
+.trn-game-bar-title__icon {
+  min-width: 0.875rem;
+  max-width: 2rem;
+  height: 1rem;
+  fill: beige;
+}
+
+.gold {
+  color: rgb(156, 135, 15);
+}
+
+.cardUserGame {
+  background-color: rgba(45, 46, 46, 0.4);
+  color: white;
+  opacity: 0.8;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 2px 5px 15px 1.5px #000000;
+}
+
+.logoImgStat {
+  width: 20px;
+  height: 20px;
+}

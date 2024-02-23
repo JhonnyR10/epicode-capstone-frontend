@@ -1,13 +1,4 @@
-import {
-  Card,
-  Col,
-  Container,
-  Image,
-  Nav,
-  NavDropdown,
-  Navbar,
-  Row,
-} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import RegisterLoginCard from "./RegisterLoginCard";
 import { useEffect, useState } from "react";
 import firstImg from "../IMG2.jpg";
@@ -18,8 +9,11 @@ import apexImg from "../apex.jpg";
 import logoImg from "../logoMP.png";
 import scrittaImg from "../scrittaMP.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import { useLocation, useNavigate } from "react-router";
 
 function LandingPage() {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = () => {
@@ -67,7 +61,7 @@ function LandingPage() {
         >
           <div className="container-fluid ">
             <ul className="navbar-nav mb-2 mb-lg-0  navSpan rounded-bottom">
-              <li className="nav-item">
+              <li className="nav-item" onClick={() => navigate("/")}>
                 <span className="nav-link">
                   <img src={logoImg} alt="..." className="logoImg" />
                 </span>
@@ -83,7 +77,7 @@ function LandingPage() {
               aria-label="Toggle navigation"
             >
               <span className="">
-                <i class="nav-link bi bi-list text-white iconaH"></i>
+                <i className="nav-link bi bi-list text-white iconaH"></i>
               </span>
             </button>
 
@@ -92,10 +86,18 @@ function LandingPage() {
               id="navbarSupportedContent"
             >
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0  navSpan rounded-bottom">
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="asd">
-                    Profilo
-                  </a>
+                <li
+                  className="nav-item nav-link"
+                  onClick={() => navigate("/me")}
+                >
+                  {/* <a
+                    className="nav-link active"
+                    aria-current="page"
+                    href=".."
+                    onClick={() => navigate("/profile")}
+                  > */}
+                  Profilo
+                  {/* </a> */}
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="asd">
@@ -118,7 +120,7 @@ function LandingPage() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <i class="bi bi-door-closed-fill nav-link"></i>
+                  <i className="bi bi-door-closed-fill nav-link"></i>
                 </li>
               </ul>
             </div>
@@ -129,27 +131,27 @@ function LandingPage() {
       <div className="container-fluid">
         <div className="row justify-content-center">
           <div className="col-2 col-xl-2">
-            <div class="card text-bg-dark gameCard ">
+            <div className="card text-bg-dark gameCard ">
               <img src={fortniteImg} className="card-img img-fluid" alt="..." />
             </div>
           </div>
           <div className="col-2 col-xl-2">
-            <div class="card text-bg-dark gameCard">
+            <div className="card text-bg-dark gameCard">
               <img src={lolImg} className="card-img img-fluid" alt="..." />
             </div>
           </div>
           <div className="col-2 col-xl-2">
-            <div class="card scrittaCard">
+            <div className="card scrittaCard">
               <img src={scrittaImg} className="card-img img-fluid" alt="..." />
             </div>
           </div>
           <div className="col-2 col-xl-2">
-            <div class="card text-bg-dark gameCard">
+            <div className="card text-bg-dark gameCard">
               <img src={csgoImg} className="card-img img-fluid" alt="..." />
             </div>
           </div>
           <div className="col-2 col-xl-2 ">
-            <div class="card text-bg-dark gameCard">
+            <div className="card text-bg-dark gameCard">
               <img src={apexImg} className="card-img img-fluid" alt="..." />
             </div>
           </div>
