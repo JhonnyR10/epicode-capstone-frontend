@@ -10,6 +10,8 @@ import logoImg from "../logoMP.png";
 import scrittaImg from "../scrittaMP.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useLocation, useNavigate } from "react-router";
+import ProfileCard from "./ProfileCard";
+import ProfileCardLP from "./ProfileCardLP";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -181,8 +183,15 @@ function LandingPage() {
                   <img src={logoImg} alt="..." className="w-50 h-50" />
                 </span>
               </div>
-              <div className="col-6" style={{ textAlign: "center" }}>
-                <RegisterLoginCard />
+              <div
+                className="col-6 d-flex justify-content-center "
+                style={{ textAlign: "center" }}
+              >
+                {localStorage.getItem("authToken") ? (
+                  <ProfileCardLP></ProfileCardLP>
+                ) : (
+                  <RegisterLoginCard />
+                )}
               </div>
             </div>
           </div>

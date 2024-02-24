@@ -28,7 +28,7 @@ export default function Login() {
       })
       .then((data) => {
         localStorage.setItem("authToken", data.token);
-        navigate("/profilo");
+        navigate("/me");
       })
       .catch((err) => console.log("ERRORE!", err));
   }

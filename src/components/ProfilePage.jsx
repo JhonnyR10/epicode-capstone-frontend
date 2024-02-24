@@ -129,6 +129,7 @@ function ProfilePage() {
               <ProfileStat
                 utente={userData}
                 view={mostraStatistiche}
+                getUtente={getUtente}
               ></ProfileStat>
             ) : (
               ""

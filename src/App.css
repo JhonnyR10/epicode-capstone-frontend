@@ -339,3 +339,35 @@ z-index: 3;
   width: 20px;
   height: 20px;
 }
+.wCard {
+  text-align: center;
+}
+.btnImg {
+  font-size: 10px;
+}
+.btnEdit {
+  font-size: 14px;
+}
+
+.imgImp {
+  width: 90px;
+}
+.imgImp2 {
+  width: 100%;
+}
+/*------------------MODAL--------------*/
+
+.modal {
+  --bs-modal-bg: rgba(45, 46, 46, 0.8);
+  color: rgba(245, 245, 220, 0.494);
+}
+
+.modal .form-control {
+  background-color: rgb(59, 59, 59) !important;
+  border: rgba(0, 0, 0, 0.2);
+  border-color: #000000;
+  color: rgba(245, 245, 220, 0.494);
+}
+.form-control:focus {
+  box-shadow: none;
+}

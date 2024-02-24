@@ -1,7 +1,12 @@
-import { Card, ListGroup } from "react-bootstrap";
 import logoImg from "../logoMP.png";
+import { useNavigate } from "react-router";
 
 function ProfileCard({ utente, setView }) {
+  const navigate = useNavigate();
+  const logoutFunction = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  };
   return (
     <div className="cardUser">
       <div className=" row justify-content-center">
@@ -10,13 +15,17 @@ function ProfileCard({ utente, setView }) {
         </div>
         <div className="row cardUser1 w-75 align-items-center justify-content-center mb-3">
           <div className="col col-md-12 text-center align-content-center my-md-2">
-            <img src={utente.avatar} alt="user_avatar" className="rounded" />
+            <img
+              src={utente.avatar}
+              alt="user_avatar"
+              className="rounded imgImp"
+            />
           </div>
           <div className="col col-md-12 text-center">
             {/* {utente.nome} {utente.cognome} */}
             GiovanniPaolo Secondigliano
             <br />
-            <span className="fs-6">
+            <span className="fs-6" onClick={logoutFunction}>
               <i className="bi bi-door-closed-fill nav-link"> Logout</i>
             </span>
           </div>
