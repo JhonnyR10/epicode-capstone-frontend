@@ -371,3 +371,6 @@ z-index: 3;
 .form-control:focus {
   box-shadow: none;
 }
+.bgBN {
+  background-color: #0000;
+}

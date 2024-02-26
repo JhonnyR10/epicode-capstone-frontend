@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Button, Form, Modal } from "react-bootstrap";
+import { Alert, Button, Form, Modal } from "react-bootstrap";
 
 function ModalAddGameAccount({ show, onHide, user, getUtente }) {
   const token = localStorage.getItem("authToken");
   const [gameSelected, setGameSelected] = useState("");
   const [username, setUsername] = useState("");
-  const [profile, setProfile] = useState();
+  const [profile, setProfile] = useState([]);
+  const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
     setUsername(e.target.value);
@@ -30,8 +31,6 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
   };
 
   const fetchFortniteAPI = () => {
-    console.log(process.env.REACT_APP_API_URL_FORTNITE);
-    console.log(process.env.REACT_APP_API_FORTNITE_TOKEN);
     // Esegui fetch per Fortnite API
     fetch(
       `${process.env.REACT_APP_API_URL_FORTNITE}?name=${username}&timeWindows=season`,
@@ -41,35 +40,79 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
           Authorization: `${process.env.REACT_APP_API_FORTNITE_TOKEN}`,
         },
       }
-    ).then((data) => {
-      const { status, data: userData } = data;
-
-      if (status === 200) {
-        // Verifica che userData sia definito prima di tentare la destrutturazione
-        if (userData) {
-          const { account, stats } = userData;
-          // Ora puoi accedere ai dati utente in account e stats
-          console.log("Dati dell'utente:", account, stats);
-        } else {
-          console.error("Errore: userData è undefined");
+    )
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("Utente non trovato");
+          } else {
+            throw new Error("Errore nella richiesta");
+          }
         }
-      } else {
-        // Gestisci il caso in cui la richiesta non ha restituito uno stato di successo
-        console.error("Errore nella richiesta. Codice di stato:", status);
-      }
-    });
+        return response.json();
+      })
+      .then((userData) => {
+        console.log("Dati dell'utente:", userData);
+        setProfile(userData);
+        setError(null);
+        fetchToDatabase(userData);
+        onHide();
+      })
+      .catch((error) => {
+        console.error("Errore:", error.message);
+        setError(error.message);
+      });
   };
 
   const fetchLeagueOfLegendsAPI = () => {
     // Esegui fetch per League of Legends API
-    fetch("URL_della_tua_API_LeagueOfLegends")
-      .then((res) => res.json())
-      .then((data) => {
-        // Gestisci la risposta della chiamata API per League of Legends
-        console.log("Dati da API League of Legends:", data);
+    fetch(`${process.env.REACT_APP_API_URL_LOL_NAME}${username}`, {
+      method: "GET",
+      headers: {
+        "X-Riot-Token": process.env.REACT_APP_X_RIOT_TOKEN,
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("Utente non trovato");
+          } else {
+            throw new Error("Errore nella richiesta");
+          }
+        }
+        return response;
+      })
+      .then((userData) => {
+        console.log("Dati dell'utente:", userData);
       })
       .catch((error) => {
-        console.error("Errore nella chiamata API League of Legends:", error);
+        console.error("Errore:", error.message);
+        setError(error.message);
+      });
+  };
+
+  const fetchToDatabase = (userData) => {
+    // Esegui la fetch al tuo database con i dati ottenuti da Fortnite
+    fetch(`${process.env.REACT_APP_BACKEND}/statistiche/${user.id}`, {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Errore nella richiesta al database");
+        }
+        return res;
+      })
+      .then(() => {
+        getUtente();
+      })
+      .catch((error) => {
+        console.error("Errore nel salvataggio nel database:", error);
+        // Gestisci l'errore
       });
   };
 
@@ -106,6 +149,7 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
               onChange={handleInputChange}
             />
           </Form.Group>
+          {error && <Alert variant="danger">Errore: Utente non trovato</Alert>}
           <Modal.Footer>
             <Button
               variant="primary"

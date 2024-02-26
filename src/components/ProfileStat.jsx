@@ -4,6 +4,7 @@ import ModalEditProfile from "./ModalEditProfile";
 import FormImgProfilo from "./FormImgProfilo";
 import ButtonDeleteProfile from "./ButtonDeleteProfile";
 import ModalAddGameAccount from "./ModalAddGameAccount";
+import ButtonDeleteStat from "./ButtonDeleteStat";
 
 function ProfileStat({ utente, view, getUtente }) {
   const [show4, setShow4] = useState(false);
@@ -144,7 +145,7 @@ function ProfileStat({ utente, view, getUtente }) {
                     {utente.statisticheGiochi.map((statistica) => (
                       <div
                         key={statistica.idStatisticaGioco}
-                        className=" row rounded p-2 my-2 cardUserGame"
+                        className=" row rounded p-2 my-2 cardUserGame justify-content-between"
                       >
                         {statistica.nomeGioco === "Fortnite" ? (
                           <div className="col-1 ps-3">
@@ -171,6 +172,13 @@ function ProfileStat({ utente, view, getUtente }) {
                         )}
                         <div className="col-auto">
                           {statistica.usernameGioco || "N/A"}
+                        </div>
+                        <div className="col-auto">
+                          <ButtonDeleteStat
+                            user={utente}
+                            statistica={statistica}
+                            getUtente={getUtente}
+                          ></ButtonDeleteStat>
                         </div>
                       </div>
                     ))}
