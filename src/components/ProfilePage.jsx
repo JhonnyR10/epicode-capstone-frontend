@@ -11,10 +11,13 @@ function ProfilePage() {
   const [userData, setUserData] = useState();
   const token = localStorage.getItem("authToken");
   const [mostraStatistiche, setMostraStatistiche] = useState("impostazioni");
+  const [userStat, setUserStat] = useState();
 
   const handleToggleView = (impostazione) => {
-    // Cambia lo stato per alternare tra impostazioni e statistiche
     setMostraStatistiche(impostazione);
+  };
+  const handleToggleStat = (stat) => {
+    setUserStat(stat);
   };
 
   const getUtente = () => {
@@ -119,7 +122,11 @@ function ProfilePage() {
         <div className="row sezioneProfilo">
           <div className="col col-12 col-md-4 col-lg-3 col-xl-4 col-xxl-3  navbar-nav pe-0 pe-md-3">
             {userData ? (
-              <ProfileCard utente={userData} setView={handleToggleView} />
+              <ProfileCard
+                utente={userData}
+                setView={handleToggleView}
+                setStat={handleToggleStat}
+              />
             ) : (
               ""
             )}
@@ -129,6 +136,7 @@ function ProfilePage() {
               <ProfileStat
                 utente={userData}
                 view={mostraStatistiche}
+                stat={userStat}
                 getUtente={getUtente}
               ></ProfileStat>
             ) : (

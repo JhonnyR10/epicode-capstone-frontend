@@ -54,8 +54,7 @@ function ProfileCardLP() {
             />
           </div>
           <div className="col col-md-12 text-center">
-            {/* {utente.nome} {utente.cognome} */}
-            GiovanniPaolo Secondigliano
+            {utente.nome} {utente.cognome}
             <br />
             <span className="fs-6" onClick={logoutFunction}>
               <i className="bi bi-door-closed-fill nav-link"> Logout</i>

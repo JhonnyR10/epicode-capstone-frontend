@@ -374,3 +374,27 @@ z-index: 3;
 .bgBN {
   background-color: #0000;
 }
+
+/*------------------FortniteStat---------*/
+.containerStat {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  text-align: center;
+  vertical-align: middle;
+}
+.containerStat div {
+  padding: 40px 0px;
+}
+
+.p1stat {
+  margin: 0;
+  font-size: 2rem;
+}
+.p2stat {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(245, 245, 220, 0.494);
+}

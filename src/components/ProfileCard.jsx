@@ -1,7 +1,7 @@
 import logoImg from "../logoMP.png";
 import { useNavigate } from "react-router";
 
-function ProfileCard({ utente, setView }) {
+function ProfileCard({ utente, setView, setStat }) {
   const navigate = useNavigate();
   const logoutFunction = () => {
     localStorage.removeItem("authToken");
@@ -22,8 +22,7 @@ function ProfileCard({ utente, setView }) {
             />
           </div>
           <div className="col col-md-12 text-center">
-            {/* {utente.nome} {utente.cognome} */}
-            GiovanniPaolo Secondigliano
+            {utente.nome} {utente.cognome}
             <br />
             <span className="fs-6" onClick={logoutFunction}>
               <i className="bi bi-door-closed-fill nav-link"> Logout</i>
@@ -36,7 +35,10 @@ function ProfileCard({ utente, setView }) {
             <div
               key={statistica.idStatisticaGioco}
               className=" row rounded p-2 my-2 cardUserGame"
-              onClick={() => setView(statistica.nomeGioco)}
+              onClick={() => {
+                setView(statistica.nomeGioco);
+                setStat(statistica);
+              }}
             >
               {statistica.nomeGioco === "Fortnite" ? (
                 <div className="col-1 ps-3">

@@ -65,34 +65,37 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
   };
 
   const fetchLeagueOfLegendsAPI = () => {
-    // Esegui fetch per League of Legends API
-    fetch(`${process.env.REACT_APP_API_URL_LOL_NAME}${username}`, {
-      method: "GET",
-      headers: {
-        "X-Riot-Token": process.env.REACT_APP_X_RIOT_TOKEN,
-      },
-    })
+    fetch(
+      `${process.env.REACT_APP_BACKEND}/statistiche/salva-lol?userId=${user.id}&usernameGioco=${username}`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
-        if (!response.ok) {
-          if (response.status === 404) {
-            throw new Error("Utente non trovato");
-          } else {
-            throw new Error("Errore nella richiesta");
-          }
+        if (response.ok) {
+          return response.text();
+        } else {
+          return response.text().then((errorMessage) => {
+            throw new Error(errorMessage);
+          });
         }
-        return response;
       })
-      .then((userData) => {
-        console.log("Dati dell'utente:", userData);
+      .then((data) => {
+        console.log(data);
+        onHide();
+        getUtente();
       })
       .catch((error) => {
-        console.error("Errore:", error.message);
-        setError(error.message);
+        console.log(error);
+        setError(error);
       });
   };
 
   const fetchToDatabase = (userData) => {
-    // Esegui la fetch al tuo database con i dati ottenuti da Fortnite
     fetch(`${process.env.REACT_APP_BACKEND}/statistiche/${user.id}`, {
       method: "POST",
       body: JSON.stringify(userData),
@@ -149,7 +152,7 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
               onChange={handleInputChange}
             />
           </Form.Group>
-          {error && <Alert variant="danger">Errore: Utente non trovato</Alert>}
+          {error && <Alert variant="danger">{error.message || error}</Alert>}
           <Modal.Footer>
             <Button
               variant="primary"

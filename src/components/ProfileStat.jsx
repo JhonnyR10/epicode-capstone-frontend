@@ -5,8 +5,10 @@ import FormImgProfilo from "./FormImgProfilo";
 import ButtonDeleteProfile from "./ButtonDeleteProfile";
 import ModalAddGameAccount from "./ModalAddGameAccount";
 import ButtonDeleteStat from "./ButtonDeleteStat";
+import FortniteStatView from "./FortniteStatView";
+import LolStatView from "./LolStatView";
 
-function ProfileStat({ utente, view, getUtente }) {
+function ProfileStat({ utente, view, getUtente, stat }) {
   const [show4, setShow4] = useState(false);
   const handleClose4 = () => setShow4(false);
   const handleShow4 = () => setShow4(true);
@@ -29,12 +31,11 @@ function ProfileStat({ utente, view, getUtente }) {
                 {/* <div className="col-6">Impostazioni</div> */}
               </div>
             </div>
-            <div className="col-5">
+            <div className="col-12 col-xxl-5">
               <div className=" row rounded p-2 my-2 cardUserGame">
-                <div className="col-6 text-end">
-                  <i className="bi bi-gear-fill"></i>
+                <div className="col-12 text-center">
+                  <i className="bi bi-gear-fill"> Profilo</i>
                 </div>
-                <div className="col-6">Profilo</div>
               </div>
               <div className="row cardUser1 align-items-center justify-content-center mb-3 wCard">
                 <div className="row ">
@@ -127,12 +128,11 @@ function ProfileStat({ utente, view, getUtente }) {
                 </div>
               </div>
             </div>
-            <div className="col-5">
+            <div className="col-12 col-xxl-5">
               <div className=" row rounded p-2 my-2 cardUserGame">
-                <div className="col-6 text-end">
-                  <i className="bi bi-gear-fill"></i>
+                <div className="col-12 text-center">
+                  <i className="bi bi-gear-fill"> Impostazioni</i>
                 </div>
-                <div className="col-6">Impostazioni</div>
               </div>
               <div className="row cardUser1 mb-3 wCard">
                 <div className=" col-12">
@@ -196,8 +196,10 @@ function ProfileStat({ utente, view, getUtente }) {
               </div>
             </div>
           </span>
+        ) : view === "Fortnite" ? (
+          <FortniteStatView stat={stat} />
         ) : (
-          ""
+          <LolStatView stat={stat} />
         )}
       </div>
       <ModalEditProfile
