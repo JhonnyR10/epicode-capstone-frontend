@@ -1,6 +1,7 @@
 import logoImg from "../logoMP.png";
+import ButtonRefreshFortniteStat from "./ButtonRefreshFortniteStat";
 
-function FortniteStatView({ stat }) {
+function FortniteStatView({ stat, utente, getUtente, setView }) {
   const convertiMinutiInOreEMinuti = (minuti) => {
     if (typeof minuti !== "number") {
       throw new Error("Il parametro deve essere un numero di minuti.");
@@ -14,8 +15,7 @@ function FortniteStatView({ stat }) {
 
     return `${oreFormattate}h ${minutiFormattati}m Play Time`;
   };
-
-  console.log(stat);
+  console.log(utente);
   return (
     <span className="row justify-content-around">
       <div className="col-12">
@@ -48,6 +48,18 @@ function FortniteStatView({ stat }) {
                 <p className="p2stat ">
                   {convertiMinutiInOreEMinuti(stat.overall.minutesPlayed)}
                 </p>
+              </div>
+              <div className="me-3">
+                {utente ? (
+                  <ButtonRefreshFortniteStat
+                    stat={stat}
+                    utente={utente}
+                    getUtente={getUtente}
+                    setView={setView}
+                  />
+                ) : (
+                  " "
+                )}
               </div>
               <div className="ms-auto">
                 <p className="mb-0">{stat.overall.matches} Total matches</p>

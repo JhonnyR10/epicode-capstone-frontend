@@ -10,13 +10,43 @@ import platinum from "../data/lol_league/Rank=Platinum.png";
 import master from "../data/lol_league/Rank=Master.png";
 import granmaster from "../data/lol_league/Rank=Grandmaster.png";
 import challenger from "../data/lol_league/Rank=Challenger.png";
+import ButtonRefreshLolStat from "./ButtonRefreshLolStat";
+import { useEffect, useState } from "react";
 
-function LolStatView({ stat }) {
+function LolStatView({ stat, utente, getUtente, setView }) {
   const totalMatches = stat.league.wins + stat.league.losses;
   const winRate =
     totalMatches > 0 ? (stat.league.wins / totalMatches) * 100 : 0;
 
-  console.log(stat);
+  const getRankImage = (rank) => {
+    switch (rank) {
+      case "BRONZE":
+        return bronzo;
+      case "SILVER":
+        return silver;
+      case "IRON":
+        return iron;
+      case "GOLD":
+        return gold;
+      case "EMERALD":
+        return emerald;
+      case "DIAMOND":
+        return diamond;
+      case "PLATINUM":
+        return platinum;
+      case "MASTER":
+        return master;
+      case "GRANDMASTER":
+        return granmaster;
+      case "CHALLENGER":
+        return challenger;
+      default:
+        return bronzo; // Default a bronzo se il valore di rank non corrisponde a nessun caso
+    }
+  };
+
+  const rankImage = getRankImage(stat.league.tier);
+
   return (
     <span className="row justify-content-around">
       <div className="col-12">
@@ -45,6 +75,14 @@ function LolStatView({ stat }) {
               <div className="me-3">
                 <p className="mb-0">Current Season</p>
               </div>
+              <div className="me-3">
+                <ButtonRefreshLolStat
+                  stat={stat}
+                  utente={utente}
+                  getUtente={getUtente}
+                  setView={setView}
+                />
+              </div>
               <div className="me-1 "></div>
               <div className="ms-auto">
                 {/* <p className="mb-0">
@@ -59,7 +97,7 @@ function LolStatView({ stat }) {
       </div>
       <div className="col-12">
         <div className="cardUser1">
-          <div className="row align-items-center">
+          <div className="row align-items-center justify-content-around">
             {/* <h3>Dettagli account</h3>{" "} */}
             <div className="col-3">
               <div className="row text-center justify-content-around">
@@ -72,21 +110,21 @@ function LolStatView({ stat }) {
                 <div className="row ">
                   <div className="col col-md-6 mb-2">
                     <div className="cardUserGame   rounded mb-2">
-                      <i class="bi bi-trophy-fill"> Wins</i>
+                      <i className="bi bi-trophy-fill"> Wins</i>
                     </div>
 
                     {stat.league.wins}
                   </div>
                   <div className="col col-md-6 mb-2">
                     <div className="cardUserGame   rounded mb-2">
-                      <i class="bi bi-x-circle-fill"> Losses</i>
+                      <i className="bi bi-x-circle-fill"> Losses</i>
                     </div>
                     {stat.league.losses}
                   </div>
                 </div>
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame   rounded mb-2">
-                    <i class="bi bi-fire">Hot Streak</i>
+                    <i className="bi bi-fire">Hot Streak</i>
                   </div>
 
                   {stat.league.hotStreak}
@@ -99,15 +137,36 @@ function LolStatView({ stat }) {
                 </div>
               </div>
             </div>
-            <div className="col-5">
-              <div className="row">
+            <div className="col-3">
+              <div className="row text-center justify-content-center">
                 <div className="col-12">
                   {" "}
-                  <img src={bronzo} alt=".." className="img-fluid" />
+                  <img src={rankImage} alt=".." className="img-fluid" />
                 </div>
-                <div className="col-12"></div>
-                <div className="col-12"></div>
-                <div className="col-12"></div>
+                <div className="col col-md-12 mb-2">
+                  <div className="cardUserGame  rounded mb-2">
+                    <i className="bi bi-person-fill"> Queue</i>
+                  </div>
+                  {stat.league.queueType}
+                </div>
+                <div className="col col-md-12 mb-2">
+                  <div className="cardUserGame  rounded mb-2">
+                    <i className="bi bi-person-fill"> Rank</i>
+                  </div>
+                  {stat.league.rank}
+                </div>
+                <div className="col col-md-12 mb-2">
+                  <div className="cardUserGame  rounded mb-2">
+                    <i className="bi bi-person-fill"> League</i>
+                  </div>
+                  {stat.league.tier}
+                </div>
+                <div className="col col-md-12 mb-2">
+                  <div className="cardUserGame  rounded mb-2">
+                    <i className="bi bi-person-fill"> LP</i>
+                  </div>
+                  {stat.league.leaguePoints}
+                </div>
               </div>
             </div>
             <div className="col-auto">

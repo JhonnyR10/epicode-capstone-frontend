@@ -34,7 +34,7 @@ function ProfileCard({ utente, setView, setStat }) {
           {utente.statisticheGiochi.map((statistica) => (
             <div
               key={statistica.idStatisticaGioco}
-              className=" row rounded p-2 my-2 cardUserGame"
+              className=" row rounded p-2 my-2 cardUserGame cursorPFA"
               onClick={() => {
                 setView(statistica.nomeGioco);
                 setStat(statistica);
@@ -69,7 +69,7 @@ function ProfileCard({ utente, setView, setStat }) {
             </div>
           ))}
           <div
-            className=" row rounded p-2 my-2 cardUserGame"
+            className=" row rounded p-2 my-2 cardUserGame cursorPFA"
             onClick={() => setView("impostazioni")}
           >
             <div className="col-1">

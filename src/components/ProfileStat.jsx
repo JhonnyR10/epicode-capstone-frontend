@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import logoImg from "../logoMP.png";
 import ModalEditProfile from "./ModalEditProfile";
 import FormImgProfilo from "./FormImgProfilo";
@@ -8,7 +8,7 @@ import ButtonDeleteStat from "./ButtonDeleteStat";
 import FortniteStatView from "./FortniteStatView";
 import LolStatView from "./LolStatView";
 
-function ProfileStat({ utente, view, getUtente, stat }) {
+function ProfileStat({ utente, view, getUtente, stat, setView }) {
   const [show4, setShow4] = useState(false);
   const handleClose4 = () => setShow4(false);
   const handleShow4 = () => setShow4(true);
@@ -18,6 +18,10 @@ function ProfileStat({ utente, view, getUtente, stat }) {
   const [show6, setShow6] = useState(false);
   const handleClose6 = () => setShow6(false);
   const handleShow6 = () => setShow6(true);
+  useEffect(() => {
+    getUtente();
+  }, [view]);
+  console.log(view);
   return (
     <div className=" cardUser row justify-content-center">
       <div className="row   align-items-center justify-content-center ">
@@ -183,7 +187,7 @@ function ProfileStat({ utente, view, getUtente, stat }) {
                       </div>
                     ))}
                     <div
-                      className=" row rounded p-2 my-2 cardUserGame"
+                      className=" row rounded p-2 my-2 cardUserGame cursorPFA"
                       onClick={setShow6}
                     >
                       <div className="col-1">
@@ -197,9 +201,21 @@ function ProfileStat({ utente, view, getUtente, stat }) {
             </div>
           </span>
         ) : view === "Fortnite" ? (
-          <FortniteStatView stat={stat} />
+          <FortniteStatView
+            stat={stat}
+            utente={utente}
+            getUtente={getUtente}
+            setView={setView}
+          />
+        ) : view === "League of Legends" ? (
+          <LolStatView
+            stat={stat}
+            utente={utente}
+            getUtente={getUtente}
+            setView={setView}
+          />
         ) : (
-          <LolStatView stat={stat} />
+          ""
         )}
       </div>
       <ModalEditProfile

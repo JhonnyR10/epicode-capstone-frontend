@@ -35,6 +35,7 @@ function ProfilePage() {
         return response.json();
       })
       .then((userData) => {
+        console.log("ciaociao");
         console.log("Dati dell'utente:", userData);
         setUserData(userData);
         // Gestisci i dati dell'utente come preferisci
@@ -46,7 +47,7 @@ function ProfilePage() {
   };
   useEffect(() => {
     getUtente();
-  }, []);
+  }, [userStat]);
 
   return (
     <div className="">
@@ -138,6 +139,7 @@ function ProfilePage() {
                 view={mostraStatistiche}
                 stat={userStat}
                 getUtente={getUtente}
+                setView={handleToggleView}
               ></ProfileStat>
             ) : (
               ""

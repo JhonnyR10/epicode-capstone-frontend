@@ -27,6 +27,10 @@ header {
 header.scrolled {
   background-position: 10% 40%;
 }
+
+.cursorPFA {
+  cursor: pointer;
+}
 #navbar1 {
   transition: opacity 1.5s ease, visibility 0.8s ease;
   position: sticky;
