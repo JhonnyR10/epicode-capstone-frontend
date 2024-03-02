@@ -1,13 +1,9 @@
 import logoImg from "../logoMP.png";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
-function ProfileCard({ utente, setView, setStat }) {
-  const location = useLocation();
+function ProfileMatch({ utente, setView, setIndex, toggleClicked }) {
   const navigate = useNavigate();
-  const logoutFunction = () => {
-    localStorage.removeItem("authToken");
-    navigate("/");
-  };
+
   return (
     <div className="cardUser">
       <div className=" row justify-content-center">
@@ -24,14 +20,10 @@ function ProfileCard({ utente, setView, setStat }) {
           </div>
           <div className="col col-md-12 text-center">
             {utente.nome} {utente.cognome}
-            <br />{" "}
-            {location.pathname === "/me" ? (
-              <span className="fs-6" onClick={logoutFunction}>
-                <i className="bi bi-door-closed-fill nav-link"> Logout</i>
-              </span>
-            ) : (
-              ""
-            )}
+            <br />
+            {/* <span className="fs-6" onClick={logoutFunction}>
+              <i className="bi bi-door-closed-fill nav-link"> Logout</i>
+            </span> */}
           </div>
         </div>
         <div className="text-center gold">Username: {utente.username} </div>
@@ -39,10 +31,12 @@ function ProfileCard({ utente, setView, setStat }) {
           {utente.statisticheGiochi.map((statistica) => (
             <div
               key={statistica.idStatisticaGioco}
-              className=" row rounded p-2 my-2 cardUserGame cursorPFA"
+              className=" row rounded p-2 my-2 cardUserGame cursorPFA justify-content-center"
               onClick={() => {
                 setView(statistica.nomeGioco);
-                setStat(statistica);
+                setIndex(0);
+                toggleClicked();
+                // setStat(statistica);
               }}
             >
               {statistica.nomeGioco === "Fortnite" ? (
@@ -73,22 +67,10 @@ function ProfileCard({ utente, setView, setStat }) {
               </div>
             </div>
           ))}
-          {location.pathname === "/me" ? (
-            <div
-              className=" row rounded p-2 my-2 cardUserGame cursorPFA"
-              onClick={() => setView("impostazioni")}
-            >
-              <div className="col-1">
-                <i className="bi bi-gear-fill"></i>
-              </div>
-              <div className="col-auto">Impostazioni</div>
-            </div>
-          ) : (
-            ""
-          )}
         </div>
       </div>
     </div>
   );
 }
-export default ProfileCard;
+
+export default ProfileMatch;

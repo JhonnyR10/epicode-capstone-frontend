@@ -145,25 +145,25 @@ function LolStatView({ stat, utente, getUtente, setView }) {
                 </div>
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame  rounded mb-2">
-                    <i className="bi bi-person-fill"> Queue</i>
+                    <i className="bi bi-arrow-clockwise"> Queue</i>
                   </div>
                   {stat.league.queueType}
                 </div>
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame  rounded mb-2">
-                    <i className="bi bi-person-fill"> Rank</i>
+                    <i className="bi bi-bar-chart-line-fill"> Rank</i>
                   </div>
                   {stat.league.rank}
                 </div>
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame  rounded mb-2">
-                    <i className="bi bi-person-fill"> League</i>
+                    <i className="bi bi-award-fill "> League</i>
                   </div>
                   {stat.league.tier}
                 </div>
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame  rounded mb-2">
-                    <i className="bi bi-person-fill"> LP</i>
+                    <i className="bi bi-trophy-fill"> LP</i>
                   </div>
                   {stat.league.leaguePoints}
                 </div>

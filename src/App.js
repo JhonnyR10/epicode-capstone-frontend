@@ -4,13 +4,20 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage";
 import ProfilePage from "./components/ProfilePage";
+import MatchPage from "./components/MatchPage";
+import ProfilePageUsers from "./components/ProfilePageUsers";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="me" element={<ProfilePage />} />
+        <Route path="/me" element={<ProfilePage />} />
+        <Route
+          path="/user/:id/:mostraStatistiche"
+          element={<ProfilePageUsers />}
+        />
+        <Route path="/match" element={<MatchPage />} />
       </Routes>
     </BrowserRouter>
   );
