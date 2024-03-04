@@ -9,7 +9,7 @@ export default function Register() {
   const [cognome, setCognome] = useState("");
   const [role, setRole] = useState("USER");
 
-  function registraUtente() {
+  const registraUtente = () => {
     fetch(`${process.env.REACT_APP_BACKEND}/auth/register`, {
       method: "POST",
       headers: {
@@ -38,7 +38,7 @@ export default function Register() {
         }
       })
       .catch((err) => console.log("ERRORE!", err));
-  }
+  };
 
   return (
     <form id="register-form" className="bg-section">

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import ProfileStat from "./ProfileStat";
 
-function ProfilePage() {
+const ProfilePage = () => {
   const navigate = useNavigate();
   const [userData, setUserData] = useState();
   const token = localStorage.getItem("authToken");
@@ -151,5 +151,5 @@ function ProfilePage() {
       <Footer></Footer>
     </div>
   );
-}
+};
 export default ProfilePage;

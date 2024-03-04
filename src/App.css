@@ -431,3 +431,19 @@ z-index: 3;
 .containerStat1 p {
   margin: 0px;
 }
+
+.table-bg {
+  --bs-table-bg: none;
+  --bs-table-border-color: #1f1f1f;
+  --bs-table-color: white;
+  border-radius: 10px;
+}
+
+.table-bg th,
+.table-bg td {
+  border: 0px;
+  background-color: #1f1f1f;
+  border-radius: 1px;
+  text-align: center;
+  box-shadow: 1px 0px 1px 0px #434343;
+}

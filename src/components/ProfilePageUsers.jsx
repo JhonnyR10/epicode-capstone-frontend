@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import Footer from "./Footer";
 import ProfileStat from "./ProfileStat";
 
-function ProfilePageUsers() {
+const ProfilePageUsers = () => {
   const navigate = useNavigate();
   let params = useParams();
   const [userData, setUserData] = useState();
@@ -177,6 +177,6 @@ function ProfilePageUsers() {
       )}
     </>
   );
-}
+};
 
 export default ProfilePageUsers;

@@ -6,7 +6,8 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  function loginUtente() {
+
+  const loginUtente = () => {
     fetch(`${process.env.REACT_APP_BACKEND}/auth/login`, {
       method: "POST",
       headers: {
@@ -31,7 +32,7 @@ export default function Login() {
         navigate("/me");
       })
       .catch((err) => console.log("ERRORE!", err));
-  }
+  };
   return (
     <form id="login-form" className="bg-section">
       <h2 className="text-center">Login</h2>

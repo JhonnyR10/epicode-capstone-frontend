@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logoImg from "../logoMP.png";
 import { useNavigate } from "react-router";
 
-function ProfileCardLP() {
+const ProfileCardLP = () => {
   const navigate = useNavigate();
   const [utente, setUtente] = useState();
   const token = localStorage.getItem("authToken");
@@ -67,6 +67,6 @@ function ProfileCardLP() {
   ) : (
     "sdgf"
   );
-}
+};
 
 export default ProfileCardLP;

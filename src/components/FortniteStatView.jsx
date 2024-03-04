@@ -1,7 +1,7 @@
 import logoImg from "../logoMP.png";
 import ButtonRefreshFortniteStat from "./ButtonRefreshFortniteStat";
 
-function FortniteStatView({ stat, utente, getUtente, setView }) {
+const FortniteStatView = ({ stat, utente, getUtente, setView }) => {
   const convertiMinutiInOreEMinuti = (minuti) => {
     if (typeof minuti !== "number") {
       throw new Error("Il parametro deve essere un numero di minuti.");
@@ -197,5 +197,5 @@ function FortniteStatView({ stat, utente, getUtente, setView }) {
       </div>
     </span>
   );
-}
+};
 export default FortniteStatView;

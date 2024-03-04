@@ -1,7 +1,7 @@
 import logoImg from "../logoMP.png";
 import { useNavigate } from "react-router";
 
-function ProfileMatch({ utente, setView, setIndex, toggleClicked }) {
+const ProfileMatch = ({ utente, setView, setIndex, toggleClicked }) => {
   const navigate = useNavigate();
 
   return (
@@ -71,6 +71,6 @@ function ProfileMatch({ utente, setView, setIndex, toggleClicked }) {
       </div>
     </div>
   );
-}
+};
 
 export default ProfileMatch;

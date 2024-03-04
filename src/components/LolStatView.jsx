@@ -13,7 +13,7 @@ import challenger from "../data/lol_league/Rank=Challenger.png";
 import ButtonRefreshLolStat from "./ButtonRefreshLolStat";
 import { useEffect, useState } from "react";
 
-function LolStatView({ stat, utente, getUtente, setView }) {
+const LolStatView = ({ stat, utente, getUtente, setView }) => {
   const totalMatches = stat.league.wins + stat.league.losses;
   const winRate =
     totalMatches > 0 ? (stat.league.wins / totalMatches) * 100 : 0;
@@ -122,19 +122,27 @@ function LolStatView({ stat, utente, getUtente, setView }) {
                     {stat.league.losses}
                   </div>
                 </div>
+
                 <div className="col col-md-12 mb-2">
                   <div className="cardUserGame   rounded mb-2">
-                    <i className="bi bi-fire">Hot Streak</i>
+                    {stat.league.hotStreak ? (
+                      <i className="bi bi-fire text-danger"> Hot Streak</i>
+                    ) : (
+                      <i className="bi bi-fire"> Hot Streak</i>
+                    )}
                   </div>
 
                   {stat.league.hotStreak}
                 </div>
-                <div className="col col-md-12 mb-2">
-                  <div className="cardUserGame  rounded mb-2">
-                    <i className="bi bi-key"> Veteran</i>
+
+                {stat.league.veteran && (
+                  <div className="col col-md-12 mb-2">
+                    <div className="cardUserGame  rounded mb-2">
+                      <i className="bi bi-crosshair"> Veteran</i>
+                    </div>
+                    {stat.league.veteran}
                   </div>
-                  {stat.league.veteran}
-                </div>
+                )}
               </div>
             </div>
             <div className="col-3">
@@ -177,5 +185,5 @@ function LolStatView({ stat, utente, getUtente, setView }) {
       </div>
     </span>
   );
-}
+};
 export default LolStatView;

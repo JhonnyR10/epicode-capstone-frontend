@@ -24,7 +24,7 @@ const ModalDettagliFortnite = ({ show, onHide, user, getUtente }) => {
     >
       <Modal.Header closeButton></Modal.Header>
       <Modal.Body className="pt-0">
-        {user && (
+        {user && user.overall && (
           <span className="row justify-content-around">
             <div className="col-12">
               <div className=" row rounded p-2 my-4 mb-4 cardUserGame">

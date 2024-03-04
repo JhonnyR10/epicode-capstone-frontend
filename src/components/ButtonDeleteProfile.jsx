@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 
-function ButtonDeleteProfile({ user }) {
+const ButtonDeleteProfile = ({ user }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
 
@@ -32,6 +32,6 @@ function ButtonDeleteProfile({ user }) {
       <i className="bi bi-trash3-fill text-danger"> Elimina Profilo</i>
     </button>
   );
-}
+};
 
 export default ButtonDeleteProfile;

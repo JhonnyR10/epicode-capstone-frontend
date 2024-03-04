@@ -1,10 +1,12 @@
-const ButtonDeleteStat = ({ user, statistica, getUtente }) => {
+import { useNavigate } from "react-router";
+
+const ButtonDeleteMatch = ({ user, match, getUtente }) => {
+  const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
 
   const handleDelete = () => {
-    console.log(statistica.idStatisticaGioco);
     fetch(
-      `${process.env.REACT_APP_BACKEND}/user/${user.id}/${statistica.idStatisticaGioco}`,
+      `${process.env.REACT_APP_BACKEND}/user/${user.id}/matches/${match.id}`,
       {
         method: "DELETE",
         headers: {
@@ -16,6 +18,7 @@ const ButtonDeleteStat = ({ user, statistica, getUtente }) => {
       .then((res) => {
         if (res.ok) {
           console.log("eliminazione completata");
+
           getUtente();
           alert("Eliminazione completata");
         } else {
@@ -27,9 +30,12 @@ const ButtonDeleteStat = ({ user, statistica, getUtente }) => {
       });
   };
   return (
-    <button className="border-0 rounded btnEdit bgBN" onClick={handleDelete}>
-      <i className="bi bi-trash3-fill text-danger"></i>
-    </button>
+    <i
+      className="bi bi-heartbreak cursorPFA"
+      onClick={() => {
+        handleDelete();
+      }}
+    ></i>
   );
 };
-export default ButtonDeleteStat;
+export default ButtonDeleteMatch;

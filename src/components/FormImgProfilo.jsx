@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-function FormImgProfilo({ user, getUtente, show, onHide }) {
+const FormImgProfilo = ({ user, getUtente, show, onHide }) => {
   const token = localStorage.getItem("authToken");
   const [image, setImage] = useState(null);
 
@@ -60,5 +60,5 @@ function FormImgProfilo({ user, getUtente, show, onHide }) {
       </button>
     </Form>
   );
-}
+};
 export default FormImgProfilo;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Alert, Button, Form, Modal } from "react-bootstrap";
 
-function ModalAddGameAccount({ show, onHide, user, getUtente }) {
+const ModalAddGameAccount = ({ show, onHide, user, getUtente }) => {
   const token = localStorage.getItem("authToken");
   const [gameSelected, setGameSelected] = useState("");
   const [username, setUsername] = useState("");
@@ -167,5 +167,5 @@ function ModalAddGameAccount({ show, onHide, user, getUtente }) {
       </Modal.Body>
     </Modal>
   );
-}
+};
 export default ModalAddGameAccount;

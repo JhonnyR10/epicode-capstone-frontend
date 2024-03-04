@@ -3,7 +3,7 @@ import Register from "./Register";
 import Login from "./Login";
 import { Card } from "react-bootstrap";
 
-function RegisterLoginCard() {
+const RegisterLoginCard = () => {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const toggleForm = () => {
     setIsLoginForm(!isLoginForm);
@@ -48,6 +48,6 @@ function RegisterLoginCard() {
       </div>
     </div>
   );
-}
+};
 
 export default RegisterLoginCard;

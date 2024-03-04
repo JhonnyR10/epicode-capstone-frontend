@@ -13,7 +13,7 @@ import { useLocation, useNavigate } from "react-router";
 import ProfileCard from "./ProfileCard";
 import ProfileCardLP from "./ProfileCardLP";
 
-function LandingPage() {
+const LandingPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [scrolling, setScrolling] = useState(false);
@@ -209,6 +209,6 @@ function LandingPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

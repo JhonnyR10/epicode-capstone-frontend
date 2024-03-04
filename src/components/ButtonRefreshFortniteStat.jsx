@@ -1,4 +1,4 @@
-function ButtonRefreshFortniteStat({ stat, utente, getUtente, setView }) {
+const ButtonRefreshFortniteStat = ({ stat, utente, getUtente, setView }) => {
   const token = localStorage.getItem("authToken");
   const fetchFortniteAPI = () => {
     // Esegui fetch per Fortnite API
@@ -64,5 +64,5 @@ function ButtonRefreshFortniteStat({ stat, utente, getUtente, setView }) {
       onClick={fetchFortniteAPI}
     ></i>
   );
-}
+};
 export default ButtonRefreshFortniteStat;

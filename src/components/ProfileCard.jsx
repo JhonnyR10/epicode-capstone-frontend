@@ -1,7 +1,7 @@
 import logoImg from "../logoMP.png";
 import { useLocation, useNavigate } from "react-router";
 
-function ProfileCard({ utente, setView, setStat }) {
+const ProfileCard = ({ utente, setView, setStat }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const logoutFunction = () => {
@@ -74,15 +74,26 @@ function ProfileCard({ utente, setView, setStat }) {
             </div>
           ))}
           {location.pathname === "/me" ? (
-            <div
-              className=" row rounded p-2 my-2 cardUserGame cursorPFA"
-              onClick={() => setView("impostazioni")}
-            >
-              <div className="col-1">
-                <i className="bi bi-gear-fill"></i>
+            <>
+              <div
+                className=" row rounded p-2 my-2 cardUserGame cursorPFA"
+                onClick={() => setView("Match")}
+              >
+                <div className="col-1">
+                  <i className="bi bi-controller"></i>
+                </div>
+                <div className="col-auto">Match</div>
               </div>
-              <div className="col-auto">Impostazioni</div>
-            </div>
+              <div
+                className=" row rounded p-2 my-2 cardUserGame cursorPFA"
+                onClick={() => setView("impostazioni")}
+              >
+                <div className="col-1">
+                  <i className="bi bi-gear-fill"></i>
+                </div>
+                <div className="col-auto">Impostazioni</div>
+              </div>
+            </>
           ) : (
             ""
           )}
@@ -90,5 +101,5 @@ function ProfileCard({ utente, setView, setStat }) {
       </div>
     </div>
   );
-}
+};
 export default ProfileCard;

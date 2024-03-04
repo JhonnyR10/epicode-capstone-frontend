@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 
-function ButtonRefreshLolStat({ stat, utente, getUtente, setView }) {
+const ButtonRefreshLolStat = ({ stat, utente, getUtente, setView }) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
   const handleClick = async () => {
@@ -32,6 +32,6 @@ function ButtonRefreshLolStat({ stat, utente, getUtente, setView }) {
   return (
     <i className="bi bi-arrow-clockwise cursorPFA" onClick={handleClick}></i>
   );
-}
+};
 
 export default ButtonRefreshLolStat;

@@ -7,8 +7,9 @@ import ModalAddGameAccount from "./ModalAddGameAccount";
 import ButtonDeleteStat from "./ButtonDeleteStat";
 import FortniteStatView from "./FortniteStatView";
 import LolStatView from "./LolStatView";
+import MatchView from "./MatchView";
 
-function ProfileStat({ utente, view, getUtente, stat, setView }) {
+const ProfileStat = ({ utente, view, getUtente, stat, setView }) => {
   const [show4, setShow4] = useState(false);
   const handleClose4 = () => setShow4(false);
   const handleShow4 = () => setShow4(true);
@@ -214,6 +215,13 @@ function ProfileStat({ utente, view, getUtente, stat, setView }) {
             getUtente={getUtente}
             setView={setView}
           />
+        ) : view === "Match" ? (
+          <MatchView
+            stat={stat}
+            utente={utente}
+            getUtente={getUtente}
+            setView={setView}
+          />
         ) : (
           ""
         )}
@@ -232,5 +240,5 @@ function ProfileStat({ utente, view, getUtente, stat, setView }) {
       ></ModalAddGameAccount>
     </div>
   );
-}
+};
 export default ProfileStat;
