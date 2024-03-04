@@ -373,7 +373,7 @@ z-index: 3;
 /*------------------MODAL--------------*/
 
 .modal {
-  --bs-modal-bg: rgba(45, 46, 46, 0.8);
+  --bs-modal-bg: rgba(45, 46, 46, 0.9);
   color: rgba(245, 245, 220, 0.494);
 }
 
@@ -413,6 +413,11 @@ z-index: 3;
   font-size: 0.8rem;
   color: rgba(245, 245, 220, 0.494);
 }
+.p3stat {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgba(233, 233, 224, 0.737);
+}
 
 /*--------------FortniteCardMatch---------*/
 .containerStat1 {
@@ -447,3 +452,72 @@ z-index: 3;
   text-align: center;
   box-shadow: 1px 0px 1px 0px #434343;
 }
+
+/*------------------NEWS-------------------*/
+.cardUser2 {
+  background-color: #1f1f1f;
+  color: white;
+  opacity: 0.7;
+  padding: 8px 8px 8px 8px;
+  border-radius: 0px 0px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 1px 1px 10px 1px #434343;
+}
+
+.sezioneNews {
+  margin-left: auto;
+  margin-right: auto;
+  width: 65%;
+}
+
+.gameCardN {
+  bottom: 40px;
+
+  transition: transform 0.3s ease-in-out;
+}
+.gameCardN img {
+  height: auto;
+}
+
+.gameCardN:hover {
+  transform: scale(1.1);
+}
+
+.gameCard {
+  position: relative;
+  overflow: hidden;
+}
+
+.gameCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  /* Imposta il colore del velo e la trasparenza desiderati */
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.gameCard:hover::before {
+  opacity: 0;
+}
+
+.truncate-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4; /* Imposta il numero di righe desiderato */
+}
+
+.sezioneNewsView {
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+}
+/* .hImgCard {
+  max-height: 308px;
+} */

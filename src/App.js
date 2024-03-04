@@ -6,6 +6,8 @@ import LandingPage from "./components/LandingPage";
 import ProfilePage from "./components/ProfilePage";
 import MatchPage from "./components/MatchPage";
 import ProfilePageUsers from "./components/ProfilePageUsers";
+import NewsPage from "./components/NewsPage";
+import NewsView from "./components/NewsView";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           element={<ProfilePageUsers />}
         />
         <Route path="/match" element={<MatchPage />} />
+        <Route path="/news" element={<NewsPage />} />
+        <Route path="/news/:id" element={<NewsView />} />
       </Routes>
     </BrowserRouter>
   );

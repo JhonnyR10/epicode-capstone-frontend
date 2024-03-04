@@ -93,14 +93,11 @@ const ProfilePageUsers = () => {
                   >
                     Match
                   </li>
-                  <li className="nav-item">
-                    <a
-                      className="nav-link active"
-                      aria-current="page"
-                      href="asd"
-                    >
-                      News
-                    </a>
+                  <li
+                    className="nav-item nav-link "
+                    onClick={() => navigate("/news")}
+                  >
+                    News
                   </li>
                   <li className="nav-item">
                     <a

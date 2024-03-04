@@ -1,27 +1,18 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import logoImg from "../logoMP.png";
 import scrittaImg from "../scrittaMP.png";
-import ProfileCard from "./ProfileCard";
-import { useEffect, useState } from "react";
 import Footer from "./Footer";
-import ProfileStat from "./ProfileStat";
+import NewsViewAll from "./NewsViewAll";
+import { useEffect, useState } from "react";
 
-const ProfilePage = () => {
-  const navigate = useNavigate();
-  const [userData, setUserData] = useState();
+const NewsView = () => {
   const token = localStorage.getItem("authToken");
-  const [mostraStatistiche, setMostraStatistiche] = useState("impostazioni");
-  const [userStat, setUserStat] = useState();
+  let params = useParams();
+  const navigate = useNavigate();
+  const [news, setListNews] = useState();
 
-  const handleToggleView = (impostazione) => {
-    setMostraStatistiche(impostazione);
-  };
-  const handleToggleStat = (stat) => {
-    setUserStat(stat);
-  };
-
-  const getUtente = () => {
-    fetch(`${process.env.REACT_APP_BACKEND}/user/profile`, {
+  const getNews = () => {
+    fetch(`${process.env.REACT_APP_BACKEND}/news/${params.id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -34,10 +25,9 @@ const ProfilePage = () => {
         }
         return response.json();
       })
-      .then((userData) => {
-        console.log("ciaociao");
-        console.log("Dati dell'utente:", userData);
-        setUserData(userData);
+      .then((listNews) => {
+        console.log("Dati dell'utente:", listNews);
+        setListNews(listNews);
         // Gestisci i dati dell'utente come preferisci
       })
       .catch((error) => {
@@ -45,10 +35,10 @@ const ProfilePage = () => {
         // Gestisci l'errore
       });
   };
-  useEffect(() => {
-    getUtente();
-  }, [userStat]);
 
+  useEffect(() => {
+    getNews();
+  }, [params]);
   return (
     <div className="">
       <nav id="navbar1" className="navbar navbar-expand-lg ">
@@ -121,31 +111,52 @@ const ProfilePage = () => {
           <div className="col-2 col-xl-2 "></div>
         </div>
       </div>
-      <div className="container-fluid mb-5">
-        <div className="row sezioneProfilo">
-          <div className="col col-12 col-md-4 col-lg-3 col-xl-4 col-xxl-3  navbar-nav pe-0 pe-md-3">
-            {userData ? (
-              <ProfileCard
-                utente={userData}
-                setView={handleToggleView}
-                setStat={handleToggleStat}
-              />
-            ) : (
-              ""
+      <div className=" container-fluid sezioneNewsView">
+        <div className="row justify-content-center">
+          <div className="col col-8">
+            {news && (
+              <div className="col  cursorPFA">
+                <div
+                  className="card h-100 cardUser"
+                  onClick={() => navigate(`/news/${news.id}`)}
+                >
+                  <img
+                    src={news.coverImageLink}
+                    className="card-img-top hImgCard"
+                    alt="..."
+                  />
+                  <div className="card-body cardUser2 ">
+                    <h1 className="card-title mt-5 ">{news.title}</h1>
+                    <p className="p2stat mb-5">
+                      <i className="bi bi-clock-history">
+                        Tempo di lettura: {news.readingTimeMinutes} min
+                      </i>
+                    </p>
+                    {/* <p className="card-text mb-5 ">{news.text}</p> */}
+                    <p className="card-text mb-5 ">
+                      {news.text.split("\n").map((paragraph, index) => (
+                        <p key={index}>{paragraph}</p>
+                      ))}
+                    </p>
+                  </div>
+                  <div className="card-footer cardUser1 ">
+                    <div className="d-flex justify-content-between">
+                      <small className="text-white ms-3">
+                        Last updated {news.creationDate}
+                      </small>
+                      <small className="text-white me-3">
+                        <i className="bi bi-pencil-square">
+                          {news.author.nome} {news.author.cognome}
+                        </i>
+                      </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
             )}
           </div>
-          <div className="col col-12 col-md-8 col-lg-9 col-xl-8 col-xxl-9 navbar-nav pe-0">
-            {userData ? (
-              <ProfileStat
-                utente={userData}
-                view={mostraStatistiche}
-                stat={userStat}
-                getUtente={getUtente}
-                setView={handleToggleView}
-              ></ProfileStat>
-            ) : (
-              ""
-            )}
+          <div className="col col-4">
+            <NewsViewAll></NewsViewAll>
           </div>
         </div>
       </div>
@@ -153,4 +164,4 @@ const ProfilePage = () => {
     </div>
   );
 };
-export default ProfilePage;
+export default NewsView;
