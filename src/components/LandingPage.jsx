@@ -67,6 +67,10 @@ const LandingPage = () => {
         // Gestisci l'errore
       });
   };
+  const logoutFunction = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  };
   useEffect(() => {
     getNews();
     window.addEventListener("scroll", handleScrollNav);
@@ -119,7 +123,7 @@ const LandingPage = () => {
               <ul className="navbar-nav ms-auto mb-2 mb-lg-0  navSpan rounded-bottom">
                 <li
                   className="nav-item nav-link"
-                  onClick={() => navigate("/me")}
+                  onClick={() => (token ? navigate("/me") : null)}
                 >
                   {/* <a
                     className="nav-link active"
@@ -132,7 +136,7 @@ const LandingPage = () => {
                 </li>
                 <li
                   className="nav-item nav-link "
-                  onClick={() => navigate("/match")}
+                  onClick={() => (token ? navigate("/me") : null)}
                 >
                   Match
                 </li>
@@ -142,19 +146,16 @@ const LandingPage = () => {
                 >
                   News
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="asd">
-                    Forum
-                  </a>
-                </li>
                 <li
                   className="nav-item nav-link "
-                  onClick={() => navigate("/shop")}
+                  onClick={() => (token ? navigate("/me") : null)}
                 >
                   Shop
                 </li>
                 <li className="nav-item">
-                  <i className="bi bi-door-closed-fill nav-link"></i>
+                  <span className="" onClick={logoutFunction}>
+                    <i className="bi bi-door-closed-fill nav-link"></i>
+                  </span>
                 </li>
               </ul>
             </div>

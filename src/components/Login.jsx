@@ -37,7 +37,7 @@ export default function Login() {
     <form id="login-form" className="bg-section">
       <h2 className="text-center">Login</h2>
       <InputGroup className="d-flex flex-column w-100">
-        <Form.Label className="text-center fs-5">Email</Form.Label>
+        <Form.Label className="text-center ">Email</Form.Label>
       </InputGroup>
       <Form.Control
         className="w-100 m-auto"
@@ -48,7 +48,7 @@ export default function Login() {
         }}
       ></Form.Control>
       <InputGroup className="d-flex flex-column w-100">
-        <Form.Label className="text-center fs-5 mt-3">Password</Form.Label>
+        <Form.Label className="text-center  mt-3">Password</Form.Label>
       </InputGroup>
       <Form.Control
         className="w-100 m-auto"

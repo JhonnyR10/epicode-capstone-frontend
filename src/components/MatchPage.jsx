@@ -528,7 +528,7 @@ const MatchPage = () => {
   const handleCurrentIndex = () => {
     console.log("Current Index before update:", currentIndex);
     setCurrentIndex(
-      (prevIndex) => (prevIndex + 1) % (listUser ? listUser.length : 1)
+      (prevIndex) => (prevIndex + 2) % (listUser ? listUser.length : 1)
     );
     console.log("Current Index after update:", currentIndex);
   };
@@ -604,7 +604,7 @@ const MatchPage = () => {
     const isCurrentUser = listUser[currentIndex].utente.id === userData?.id;
 
     if (isCurrentUser) {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % listUser.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 2) % listUser.length);
     }
 
     return (
@@ -701,7 +701,7 @@ const MatchPage = () => {
     const isCurrentUser = listUser[currentIndex].utente.id === userData?.id;
 
     if (isCurrentUser) {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % listUser.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 2) % listUser.length);
     }
 
     return (
@@ -836,6 +836,10 @@ const MatchPage = () => {
       </div>
     );
   };
+  const logoutFunction = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  };
   return (
     <div className="">
       <nav id="navbar1" className="navbar navbar-expand-lg ">
@@ -878,18 +882,17 @@ const MatchPage = () => {
               >
                 News
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Forum
-                </a>
+
+              <li
+                className="nav-item nav-link "
+                onClick={() => navigate("/shop")}
+              >
+                Shop
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Shop
-                </a>
-              </li>
-              <li className="nav-item">
-                <i className="bi bi-door-closed-fill nav-link"></i>
+                <span className="" onClick={logoutFunction}>
+                  <i className="bi bi-door-closed-fill nav-link"></i>
+                </span>
               </li>
             </ul>
           </div>

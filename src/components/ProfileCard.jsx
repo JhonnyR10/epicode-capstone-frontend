@@ -26,7 +26,7 @@ const ProfileCard = ({ utente, setView, setStat }) => {
             {utente.nome} {utente.cognome}
             <br />{" "}
             {location.pathname === "/me" ? (
-              <span className="fs-6" onClick={logoutFunction}>
+              <span className="" onClick={logoutFunction}>
                 <i className="bi bi-door-closed-fill nav-link"> Logout</i>
               </span>
             ) : (

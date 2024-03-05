@@ -35,7 +35,10 @@ const NewsView = () => {
         // Gestisci l'errore
       });
   };
-
+  const logoutFunction = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  };
   useEffect(() => {
     getNews();
   }, [params]);
@@ -66,12 +69,15 @@ const NewsView = () => {
 
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0  navSpan rounded-bottom">
-              <li className="nav-item nav-link" onClick={() => navigate("/me")}>
+              <li
+                className="nav-item nav-link"
+                onClick={() => (token ? navigate("/me") : null)}
+              >
                 Profilo
               </li>
               <li
                 className="nav-item nav-link "
-                onClick={() => navigate("/match")}
+                oonClick={() => (token ? navigate("/match") : null)}
               >
                 Match
               </li>
@@ -81,18 +87,17 @@ const NewsView = () => {
               >
                 News
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Forum
-                </a>
+
+              <li
+                className="nav-item nav-link "
+                onClick={() => (token ? navigate("/shop") : null)}
+              >
+                Shop
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Shop
-                </a>
-              </li>
-              <li className="nav-item">
-                <i className="bi bi-door-closed-fill nav-link"></i>
+                <span className="" onClick={logoutFunction}>
+                  <i className="bi bi-door-closed-fill nav-link"></i>
+                </span>
               </li>
             </ul>
           </div>

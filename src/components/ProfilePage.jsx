@@ -45,6 +45,10 @@ const ProfilePage = () => {
         // Gestisci l'errore
       });
   };
+  const logoutFunction = () => {
+    localStorage.removeItem("authToken");
+    navigate("/");
+  };
   useEffect(() => {
     getUtente();
   }, [userStat]);
@@ -91,18 +95,17 @@ const ProfilePage = () => {
               >
                 News
               </li>
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Forum
-                </a>
+
+              <li
+                className="nav-item nav-link "
+                onClick={() => navigate("/shop")}
+              >
+                Shop
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="asd">
-                  Shop
-                </a>
-              </li>
-              <li className="nav-item">
-                <i className="bi bi-door-closed-fill nav-link"></i>
+                <span className="" onClick={logoutFunction}>
+                  <i className="bi bi-door-closed-fill nav-link"></i>
+                </span>
               </li>
             </ul>
           </div>

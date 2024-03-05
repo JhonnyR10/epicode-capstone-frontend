@@ -46,22 +46,22 @@ const MatchView = ({ stat, utente, getUtente, setView }) => {
                           </div>
                         </td>
                         {match.statisticheGiochi.length > 1 &&
-                          match.statisticheGiochi.map(
-                            (statistica, statIndex) => (
+                          match.statisticheGiochi
+                            .slice(0, 2)
+                            .map((statistica, statIndex) => (
                               <React.Fragment key={statIndex}>
                                 <td>{statistica.usernameGioco || "N/A"}</td>
                               </React.Fragment>
-                            )
-                          )}
+                            ))}
                         {match.statisticheGiochi.length <= 1 &&
-                          match.statisticheGiochi.map(
-                            (statistica, statIndex) => (
+                          match.statisticheGiochi
+                            .slice(0, 2)
+                            .map((statistica, statIndex) => (
                               <React.Fragment key={statIndex}>
                                 <td>{statistica.usernameGioco || "N/A"}</td>
                                 <td>"N/A"</td>
                               </React.Fragment>
-                            )
-                          )}
+                            ))}
 
                         <td>
                           {" "}

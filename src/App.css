@@ -139,7 +139,7 @@ header.scrolled {
 }
 
 .sezioneCentrale {
-  width: 75%;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -389,12 +389,12 @@ z-index: 3;
 .wCard {
   text-align: center;
 }
-.btnImg {
+/* .btnImg {
   font-size: 10px;
-}
-.btnEdit {
+} */
+/* .btnEdit {
   font-size: 14px;
-}
+} */
 
 .imgImp {
   width: 90px;
@@ -414,10 +414,18 @@ z-index: 3;
   border: rgba(0, 0, 0, 0.2);
   border-color: #000000;
   color: rgba(245, 245, 220, 0.494);
+  font-size: 0.6rem;
+}
+.modal .form-select {
+  font-size: 0.6rem;
 }
 .form-control:focus {
   box-shadow: none;
 }
+.fcs {
+  font-size: 0.6rem;
+}
+
 .bgBN {
   background-color: #0000;
 }
@@ -447,12 +455,12 @@ z-index: 3;
 }
 .p2stat {
   margin: 0;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   color: rgba(245, 245, 220, 0.494);
 }
 .p3stat {
   margin: 0;
-  font-size: 0.8rem;
+  /* font-size: 0.8rem; */
   color: rgba(233, 233, 224, 0.737);
 }
 
@@ -579,4 +587,24 @@ z-index: 3;
 }
 .welM1 {
   margin-top: 8.5rem;
+}
+
+/*----------------------SHOP--------------------------------*/
+.logoImg1 {
+  width: 50px;
+  height: 50px;
+}
+
+.cardUserX {
+  background-color: rgba(45, 46, 46, 0.4);
+  color: white;
+  opacity: 0.8;
+  padding: 10px 8px 8px 8px;
+  border-radius: 10px;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #300404;
+}
+
+.btn {
+  --bs-btn-font-size: 0.6rem;
 }

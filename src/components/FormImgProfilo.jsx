@@ -47,7 +47,7 @@ const FormImgProfilo = ({ user, getUtente, show, onHide }) => {
           accept="image/*"
           onChange={handleImageChange}
           size="sm"
-          className="cardUserGame"
+          className="cardUserGame fcs"
         />
       </Form.Group>
 

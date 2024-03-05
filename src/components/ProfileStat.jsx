@@ -8,8 +8,10 @@ import ButtonDeleteStat from "./ButtonDeleteStat";
 import FortniteStatView from "./FortniteStatView";
 import LolStatView from "./LolStatView";
 import MatchView from "./MatchView";
+import { useNavigate } from "react-router";
 
 const ProfileStat = ({ utente, view, getUtente, stat, setView }) => {
+  const navigate = useNavigate();
   const [show4, setShow4] = useState(false);
   const handleClose4 = () => setShow4(false);
   const handleShow4 = () => setShow4(true);
@@ -187,15 +189,31 @@ const ProfileStat = ({ utente, view, getUtente, stat, setView }) => {
                         </div>
                       </div>
                     ))}
-                    <div
-                      className=" row rounded p-2 my-2 cardUserGame cursorPFA"
-                      onClick={setShow6}
-                    >
-                      <div className="col-1">
-                        <i className="bi bi-plus"></i>
+                    {!utente.vip && utente.statisticheGiochi.length >= 2 ? (
+                      <div
+                        className="row rounded p-2 my-2 cardUserGame cursorPFA"
+                        onClick={() => navigate("/shop")}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <div className="col-auto">
+                          Hai raggiunto il limite di account.{" "}
+                          <strong>Diventa VIP</strong> per aggiungere altri
+                          account.
+                        </div>
                       </div>
-                      <div className="col-auto">Aggiungi Account</div>
-                    </div>
+                    ) : (
+                      (utente.vip || utente.statisticheGiochi.length < 2) && (
+                        <div
+                          className="row rounded p-2 my-2 cardUserGame cursorPFA"
+                          onClick={handleShow6}
+                        >
+                          <div className="col-1">
+                            <i className="bi bi-plus"></i>
+                          </div>
+                          <div className="col-auto">Aggiungi Account</div>
+                        </div>
+                      )
+                    )}
                   </div>
                 </div>
               </div>

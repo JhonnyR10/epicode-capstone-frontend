@@ -46,7 +46,7 @@ export default function Register() {
       <div className="row justify-content-center align-items-center">
         <div className="col-6">
           <InputGroup className="d-flex flex-column w-100">
-            <Form.Label className="text-center fs-5">Username</Form.Label>
+            <Form.Label className="text-center mt-2">Username</Form.Label>
           </InputGroup>
           <Form.Control
             className="w-100 m-auto"
@@ -57,7 +57,7 @@ export default function Register() {
             }}
           ></Form.Control>
           <InputGroup className="d-flex flex-column w-100">
-            <Form.Label className="text-center fs-5">Email</Form.Label>
+            <Form.Label className="text-center mt-2">Email</Form.Label>
           </InputGroup>
           <Form.Control
             className="w-100 m-auto"
@@ -68,7 +68,7 @@ export default function Register() {
             }}
           ></Form.Control>
           <InputGroup className="d-flex flex-column w-100">
-            <Form.Label className="text-center fs-5">Password</Form.Label>
+            <Form.Label className="text-center mt-2">Password</Form.Label>
           </InputGroup>
           <Form.Control
             className="w-100 m-auto"
@@ -82,7 +82,7 @@ export default function Register() {
         </div>
         <div className="col-6">
           <InputGroup className="d-flex flex-column w-100">
-            <Form.Label className="text-center fs-5">Nome</Form.Label>
+            <Form.Label className="text-center mt-2">Nome</Form.Label>
           </InputGroup>
           <Form.Control
             className="w-100 m-auto"
@@ -93,7 +93,7 @@ export default function Register() {
             }}
           ></Form.Control>
           <InputGroup className="d-flex flex-column w-100">
-            <Form.Label className="text-center fs-5">Cognome</Form.Label>
+            <Form.Label className="text-center mt-2">Cognome</Form.Label>
           </InputGroup>
           <Form.Control
             className="w-100 m-auto"
@@ -115,7 +115,7 @@ export default function Register() {
       </div>
 
       {/* <InputGroup className="d-flex flex-column w-100">
-          <Form.Label className="text-center fs-5">Ruolo</Form.Label>
+          <Form.Label className="text-center mt-2">Ruolo</Form.Label>
         </InputGroup> */}
       {/* <Form.Select
         value={role}
