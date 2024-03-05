@@ -1,4 +1,4 @@
-# Piattaforma di Gaming Integrata - Frontend
+# Piattaforma di Gaming Integrata - MATCH PLAY - Frontend
 
 ## Panoramica
 Il frontend della Piattaforma di Gaming Integrata offre un'interfaccia utente reattiva e intuitiva, consentendo ai giocatori di tutto il mondo di connettersi, condividere esperienze e trovare compagni di gioco. Questa interfaccia è sviluppata utilizzando React e un insieme di tecnologie moderne per garantire la migliore esperienza utente possibile.
