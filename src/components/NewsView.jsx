@@ -12,7 +12,7 @@ const NewsView = () => {
   const [news, setListNews] = useState();
 
   const getNews = () => {
-    fetch(`${process.env.REACT_APP_BACKEND}/news/${params.id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND}/news/getbyid/${params.id}`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

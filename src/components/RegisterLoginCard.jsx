@@ -33,13 +33,13 @@ const RegisterLoginCard = () => {
         <div className="card-inner">
           <div className={`card-face card-front`}>
             <Login></Login>
-            <p>
+            <p className="mt-2">
               Non sei registrato? <span onClick={toggleForm}>Registrati!</span>
             </p>
           </div>
           <div className={`card-face card-back`}>
             <Register></Register>
-            <p>
+            <p className="mt-2">
               Sei già registrato?{" "}
               <span onClick={toggleForm}>Fai il login!</span>
             </p>

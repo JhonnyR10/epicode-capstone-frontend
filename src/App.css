@@ -14,6 +14,23 @@ body {
     #4d4c4c,
     #5c5c5c
   );
+  /* background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #161616,
+    #252525,
+    #353535,
+    #454545,
+    #454545,
+    #454545,
+    #454545,
+    #353535,
+    #252525,
+    #161616,
+    #000000
+  ); */
+  font-family: "CustomFont", sans-serif;
+  font-size: 0.6rem;
 }
 
 header {
@@ -22,6 +39,13 @@ header {
   transition: background-position 0.5s ease-in-out;
   height: 50vh;
   width: auto;
+}
+footer {
+  background-color: none;
+  color: rgba(245, 245, 220, 0.494) !important;
+}
+footer > section:first-child {
+  border-bottom: 1px solid grey;
 }
 
 header.scrolled {
@@ -237,6 +261,14 @@ z-index: 3;
 }
 
 /* --------------------CSS CARD REGISTER/LOGIN------------------- */
+.btn-primary.btnLR {
+  --bs-btn-border-color: none;
+}
+
+.btn:hover.btnLR {
+  background-color: unset;
+}
+
 .card-container {
   perspective: 1000px;
   width: 300px;
@@ -389,7 +421,12 @@ z-index: 3;
 .bgBN {
   background-color: #0000;
 }
-
+.form-control {
+  background-color: rgb(59, 59, 59) !important;
+  border: rgba(0, 0, 0, 0.2);
+  border-color: #000000;
+  color: rgba(245, 245, 220, 0.494);
+}
 /*------------------FortniteStat---------*/
 .containerStat {
   max-width: 1200px;
@@ -521,3 +558,25 @@ z-index: 3;
 /* .hImgCard {
   max-height: 308px;
 } */
+
+/*------------------------LANDINGPAGE------------------------*/
+.h1lp {
+  font-size: 1.3rem;
+  color: rgba(233, 233, 224, 0.737);
+  line-height: 94%;
+}
+
+.iconArrow {
+  font-size: 80px;
+}
+
+.asjbajs {
+  margin-bottom: 7rem;
+}
+
+.welM {
+  margin-top: 13rem;
+}
+.welM1 {
+  margin-top: 8.5rem;
+}

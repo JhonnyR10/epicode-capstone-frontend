@@ -60,7 +60,10 @@ export default function Login() {
         }}
       ></Form.Control>
       <div className="text-center mt-3">
-        <Button className="save-button rounded-5 px-3" onClick={loginUtente}>
+        <Button
+          className="save-button rounded-3 px-3 btnEdit cardUserGame btnLR"
+          onClick={loginUtente}
+        >
           Login
         </Button>
       </div>

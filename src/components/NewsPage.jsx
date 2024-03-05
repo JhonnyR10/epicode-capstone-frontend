@@ -35,7 +35,7 @@ const NewsPage = () => {
   const navigate = useNavigate();
 
   const getNews = () => {
-    fetch(`${process.env.REACT_APP_BACKEND}/news`, {
+    fetch(`${process.env.REACT_APP_BACKEND}/news/getall`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

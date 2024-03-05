@@ -142,7 +142,7 @@ const ModalEditNews = ({ show, onHide, getNews, news }) => {
                   variant="primary"
                   type="submit"
                   //   onClick={onHide}
-                  className="rounded-pill"
+                  className="rounded-pill  rounded-3 px-3 btnEdit cardUserGame btnLR"
                 >
                   Salva
                 </Button>

@@ -12,10 +12,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { useLocation, useNavigate } from "react-router";
 import ProfileCard from "./ProfileCard";
 import ProfileCardLP from "./ProfileCardLP";
+import Footer from "./Footer";
 
 const LandingPage = () => {
+  const [listNews, setListNews] = useState();
+  const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const location = useLocation();
+  const [newsToShow, setNewsToShow] = useState(2);
   const [scrolling, setScrolling] = useState(false);
 
   const handleScroll = () => {
@@ -39,7 +43,32 @@ const LandingPage = () => {
       }, 600) // Puoi regolare il timeout in base alle tue esigenze
     );
   };
+  const getNews = () => {
+    fetch(`${process.env.REACT_APP_BACKEND}/news/getall`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Errore nella richiesta");
+        }
+        return response.json();
+      })
+      .then((listNews) => {
+        // console.log("Dati dell'utente:", listNews);
+        setListNews(listNews.reverse());
+        // Gestisci i dati dell'utente come preferisci
+      })
+      .catch((error) => {
+        console.error("Errore:", error.message);
+        // Gestisci l'errore
+      });
+  };
   useEffect(() => {
+    getNews();
     window.addEventListener("scroll", handleScrollNav);
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -131,83 +160,151 @@ const LandingPage = () => {
           </div>
         </nav>
       </header>
-
-      <div className="container-fluid">
-        <div className="row justify-content-center">
-          <div className="col-2 col-xl-2">
-            <div className="card text-bg-dark gameCard ">
-              <img src={fortniteImg} className="card-img img-fluid" alt="..." />
-            </div>
-          </div>
-          <div className="col-2 col-xl-2">
-            <div className="card text-bg-dark gameCard">
-              <img src={lolImg} className="card-img img-fluid" alt="..." />
-            </div>
-          </div>
-          <div className="col-2 col-xl-2">
-            <div className="card scrittaCard">
-              <img src={scrittaImg} className="card-img img-fluid" alt="..." />
-            </div>
-          </div>
-          <div className="col-2 col-xl-2">
-            <div className="card text-bg-dark gameCard">
-              <img src={csgoImg} className="card-img img-fluid" alt="..." />
-            </div>
-          </div>
-          <div className="col-2 col-xl-2 ">
-            <div className="card text-bg-dark gameCard">
-              <img src={apexImg} className="card-img img-fluid" alt="..." />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="container-fluid">
-        <div className="row sezioneCentrale">
-          <div className="mb-3">
-            <Card className="bg-section1">
-              <Card.Body className="d-flex flex-column align-items-center text-center">
-                <Card.Title>Sezione 1</Card.Title>
-                <Card.Text className="ms-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </div>
-
-          <div className="mb-3">
-            <div className="row d-flex justify-content-center text-center">
-              <div className="col-6 d-flex justify-content-center align-items-center">
-                <span className="">
-                  <img src={logoImg} alt="..." className="w-50 h-50" />
-                </span>
+      <span className="mb-5">
+        <div className="container-fluid">
+          <div className="row justify-content-center">
+            <div className="col-2 col-xl-2">
+              <div className="card text-bg-dark gameCard ">
+                <img
+                  src={fortniteImg}
+                  className="card-img img-fluid"
+                  alt="..."
+                />
               </div>
-              <div
-                className="col-6 d-flex justify-content-center "
-                style={{ textAlign: "center" }}
-              >
-                {localStorage.getItem("authToken") ? (
-                  <ProfileCardLP></ProfileCardLP>
-                ) : (
-                  <RegisterLoginCard />
-                )}
+            </div>
+            <div className="col-2 col-xl-2">
+              <div className="card text-bg-dark gameCard">
+                <img src={lolImg} className="card-img img-fluid" alt="..." />
+              </div>
+            </div>
+            <div className="col-2 col-xl-2">
+              <div className="card scrittaCard">
+                <img
+                  src={scrittaImg}
+                  className="card-img img-fluid"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <div className="col-2 col-xl-2">
+              <div className="card text-bg-dark gameCard">
+                <img src={csgoImg} className="card-img img-fluid" alt="..." />
+              </div>
+            </div>
+            <div className="col-2 col-xl-2 ">
+              <div className="card text-bg-dark gameCard">
+                <img src={apexImg} className="card-img img-fluid" alt="..." />
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="mb-3">
-            <Card>
-              <Card.Body>
-                <Card.Title>Sezione 3</Card.Title>
-                <Card.Text>Contenuto della sezione 3.</Card.Text>
-              </Card.Body>
-            </Card>
+        <div className="container-fluid asjbajs">
+          <div className="row sezioneCentrale">
+            <div className="welM">
+              <Card className="bg-section1">
+                <Card.Body className="d-flex flex-column align-items-center text-center">
+                  <h1 className="h1lp">
+                    <Card.Text className="ms-3">
+                      {" "}
+                      Benvenuti su Match Play, dove il vostro spirito da gamer
+                      incontra la possibilità di connettersi e crescere. Collega
+                      tutti i tuoi account di gioco - PSN, Xbox, Epic e altri -
+                      in un unico posto per tracciare le tue statistiche e
+                      trovare compagni di squadra all'altezza della tua
+                      passione. Preparati a trasformare il tuo modo di giocare!
+                    </Card.Text>
+                  </h1>
+                </Card.Body>
+              </Card>
+            </div>
+
+            <div className="mt-">
+              <div className="row d-flex justify-content-center text-center">
+                <div className="col-6 d-flex justify-content-center align-items-center">
+                  <span className="">
+                    <img src={logoImg} alt="..." className="w-50 h-50" />
+                  </span>
+                </div>
+                <div
+                  className="col-6 d-flex justify-content-center "
+                  style={{ textAlign: "center" }}
+                >
+                  {localStorage.getItem("authToken") ? (
+                    <ProfileCardLP></ProfileCardLP>
+                  ) : (
+                    <RegisterLoginCard />
+                  )}
+                </div>
+              </div>
+            </div>
+            {listNews && (
+              <div className="welM1">
+                <div className="my-5">
+                  <Card className="bg-section1">
+                    <Card.Body className="d-flex flex-column align-items-center text-center">
+                      <h2 className="h1lp">
+                        <Card.Text className="ms-3">
+                          {" "}
+                          Rimani sempre un passo avanti nel mondo del gaming con
+                          la nostra sezione news. Scopri le ultime novità su
+                          console, giochi e tendenze del settore. Dalle
+                          recensioni all'avanguardia agli aggiornamenti
+                          cruciali, abbiamo tutto quello che serve per
+                          mantenerti informato e pronto a immergerti nelle
+                          prossime avventure virtuali.
+                        </Card.Text>
+                      </h2>
+                    </Card.Body>
+                  </Card>
+                </div>
+
+                <div className="row row-cols-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4  justify-content-center g-4">
+                  {(listNews.slice(0, newsToShow) ?? []).map((news, index) => (
+                    <div className="col gameCardN cursorPFA" key={index}>
+                      <div className="card h-100 cardUser">
+                        <img
+                          src={news.coverImageLink}
+                          className="card-img-top"
+                          alt="..."
+                          onClick={() => navigate(`/news/${news.id}`)}
+                        />
+                        <div
+                          className="card-body cardUser2 "
+                          onClick={() => navigate(`/news/${news.id}`)}
+                        >
+                          <h5 className="card-title">{news.title}</h5>
+                          <p className="card-text truncate-text ">
+                            {news.text}
+                          </p>
+                        </div>
+                        <div className="card-footer cardUser1 "></div>
+                      </div>
+                    </div>
+                  ))}
+
+                  {listNews && (
+                    <div className="col gameCardN">
+                      <div
+                        className="card h-100 cardUser cursorPFA"
+                        onClick={() => navigate(`/news`)}
+                      >
+                        <div className="card-body cardUser2 text-center">
+                          <div className="d-flex h-100 justify-content-center align-items-center">
+                            <i className="bi bi-arrow-right iconArrow"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
         </div>
-      </div>
+      </span>
+
+      <Footer></Footer>
     </div>
   );
 };

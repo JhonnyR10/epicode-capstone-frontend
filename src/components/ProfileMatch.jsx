@@ -1,3 +1,4 @@
+import { Alert } from "react-bootstrap";
 import logoImg from "../logoMP.png";
 import { useNavigate } from "react-router";
 
@@ -28,6 +29,13 @@ const ProfileMatch = ({ utente, setView, setIndex, toggleClicked }) => {
         </div>
         <div className="text-center gold">Username: {utente.username} </div>
         <div className="row cardUser1 w-75 align-items-center justify-content-center my-3">
+          <>
+            {utente.statisticheGiochi.length === 0 && (
+              <Alert variant="danger">
+                Nessun Account, aggiungine uno per fare Match.
+              </Alert>
+            )}
+          </>
           {utente.statisticheGiochi.map((statistica) => (
             <div
               key={statistica.idStatisticaGioco}

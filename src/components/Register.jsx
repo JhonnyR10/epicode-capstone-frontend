@@ -43,7 +43,7 @@ export default function Register() {
   return (
     <form id="register-form" className="bg-section">
       <h2 className="text-center">Registrati</h2>
-      <div className="row">
+      <div className="row justify-content-center align-items-center">
         <div className="col-6">
           <InputGroup className="d-flex flex-column w-100">
             <Form.Label className="text-center fs-5">Username</Form.Label>
@@ -103,14 +103,14 @@ export default function Register() {
               setCognome(e.target.value);
             }}
           ></Form.Control>
-          <div className="text-center mt-3">
-            <Button
-              className="save-button rounded-5 px-3"
-              onClick={registraUtente}
-            >
-              Registrati
-            </Button>
-          </div>
+        </div>
+        <div className="text-center mt-3 ">
+          <Button
+            className="save-button rounded-3 px-3 btnEdit cardUserGame btnLR"
+            onClick={registraUtente}
+          >
+            Registrati
+          </Button>
         </div>
       </div>
 
