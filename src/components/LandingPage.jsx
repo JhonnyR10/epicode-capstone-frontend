@@ -147,10 +147,11 @@ const LandingPage = () => {
                     Forum
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="asd">
-                    Shop
-                  </a>
+                <li
+                  className="nav-item nav-link "
+                  onClick={() => navigate("/shop")}
+                >
+                  Shop
                 </li>
                 <li className="nav-item">
                   <i className="bi bi-door-closed-fill nav-link"></i>

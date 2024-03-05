@@ -9,6 +9,7 @@ import MatchPage from "./components/MatchPage";
 import ProfilePageUsers from "./components/ProfilePageUsers";
 import NewsPage from "./components/NewsPage";
 import NewsView from "./components/NewsView";
+import VipShop from "./components/VipShop";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/match" element={<MatchPage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/news/:id" element={<NewsView />} />
+        <Route path="/shop" element={<VipShop />} />
       </Routes>
     </BrowserRouter>
   );
