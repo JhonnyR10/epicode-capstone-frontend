@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Piattaforma di Gaming Integrata - MATCH PLAY - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Panoramica
+Il frontend della Piattaforma di Gaming Integrata offre un'interfaccia utente reattiva e intuitiva, consentendo ai giocatori di tutto il mondo di connettersi, condividere esperienze e trovare compagni di gioco. Questa interfaccia è sviluppata utilizzando React e un insieme di tecnologie moderne per garantire la migliore esperienza utente possibile.
 
-## Available Scripts
+## Tecnologie e Dipendenze
+Questo progetto è sviluppato con React e utilizza le seguenti dipendenze principali:
 
-In the project directory, you can run:
+- @reduxjs/toolkit
+- @stripe/stripe-js
+- bootstrap e react-bootstrap
+- chart.js e react-chartjs-2
+- react-router-dom
+- redux e redux-persist
+- e altre utility per migliorare l'esperienza di sviluppo e test.
 
-### `npm start`
+Per un elenco completo, consulta il file `package.json` nel repository.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Configurazione del Progetto
+Per eseguire il progetto localmente, clona il repository e installa le dipendenze:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+git clone https://github.com/JhonnyR10/epicode-capstone-frontend.git
+cd piattaforma-gaming-frontend
+npm install
 
-### `npm test`
+Crea un file `.env` nella radice del progetto seguendo l'esempio fornito in `.env.example` per configurare le variabili d'ambiente necessarie.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Per avviare il server di sviluppo:
 
-### `npm run build`
+npm start
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Il progetto sarà accessibile all'indirizzo `http://localhost:3000`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Link al Repository Backend
+Per il funzionamento completo della piattaforma, è necessario anche configurare e avviare il backend. 
+Puoi trovare il repository del backend e le relative istruzioni qui: https://github.com/JhonnyR10/Epicode-CAPSTONE-BackEnd.git
 
-### `npm run eject`
+## Contribuire
+Le contribuzioni sono benvenute! Per contribuire, per favore segui le linee guida riportate nel file CONTRIBUTING.md.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Autore
+Giovanni Longo
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
