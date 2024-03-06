@@ -1,4 +1,5 @@
 import logoImg from "../logoMP.png";
+import logovip from "../LOGO_FUOCO.png";
 import { useLocation, useNavigate } from "react-router";
 
 const ProfileCard = ({ utente, setView, setStat }) => {
@@ -12,7 +13,11 @@ const ProfileCard = ({ utente, setView, setStat }) => {
     <div className="cardUser">
       <div className=" row justify-content-center">
         <div className="text-center my-3">
-          <img src={logoImg} alt="..." className="logoImg" />
+          {utente.vip ? (
+            <img src={logovip} alt="..." className="logoImg" />
+          ) : (
+            <img src={logoImg} alt="..." className="logoImg" />
+          )}
         </div>
         <div className="row cardUser1 w-75 align-items-center justify-content-center mb-3">
           <div className="col col-md-12 text-center align-content-center my-md-2">

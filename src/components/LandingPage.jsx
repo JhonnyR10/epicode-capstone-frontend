@@ -136,7 +136,7 @@ const LandingPage = () => {
                 </li>
                 <li
                   className="nav-item nav-link "
-                  onClick={() => (token ? navigate("/me") : null)}
+                  onClick={() => (token ? navigate("/match") : null)}
                 >
                   Match
                 </li>
@@ -148,7 +148,7 @@ const LandingPage = () => {
                 </li>
                 <li
                   className="nav-item nav-link "
-                  onClick={() => (token ? navigate("/me") : null)}
+                  onClick={() => (token ? navigate("/shop") : null)}
                 >
                   Shop
                 </li>

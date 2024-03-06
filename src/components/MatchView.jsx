@@ -1,5 +1,6 @@
 import React from "react";
 import logoImg from "../logoMP.png";
+import logovip from "../LOGO_FUOCO.png";
 import { useNavigate } from "react-router";
 import ButtonDeleteMatch from "./ButtonDeleteMatch";
 
@@ -37,11 +38,19 @@ const MatchView = ({ stat, utente, getUtente, setView }) => {
                       <tr key={index}>
                         <td>
                           <div className="d-flex align-items-center">
-                            <img
-                              src={logoImg}
-                              alt="..."
-                              className="logoImgStat me-2"
-                            />
+                            {match.vip ? (
+                              <img
+                                src={logovip}
+                                alt="..."
+                                className="logoImgStat me-2"
+                              />
+                            ) : (
+                              <img
+                                src={logoImg}
+                                alt="..."
+                                className="logoImgStat me-2"
+                              />
+                            )}
                             <p className="mb-0">{match.username}</p>
                           </div>
                         </td>
