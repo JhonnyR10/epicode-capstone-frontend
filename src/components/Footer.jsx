@@ -20,7 +20,7 @@ const Footer = () => {
             <i className="bi bi-instagram"></i>
           </a>
           <a
-            href="www.linkedin.com/in/giovanni-longo-471a242b8"
+            href="https://linkedin.com/in/giovanni-longo-471a242b8"
             className="me-4 text-reset"
           >
             <i className="bi bi-linkedin"></i>
